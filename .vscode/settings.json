@@ -1,4 +1,11 @@
 {
   "editor.defaultFormatter": null,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "chrono": "cpp",
+    "system_error": "cpp",
+    "xlocale": "cpp",
+    "regex": "cpp",
+    "xstring": "cpp"
+  }
 }

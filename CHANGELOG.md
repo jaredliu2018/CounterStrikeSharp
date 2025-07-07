@@ -1,3 +1,31 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## What's Changed in v1.0.323
+* feat: update schema for game update 1.40.8.5 (03.07.2025) in [#921](https://github.com/roflmuffin/CounterStrikeSharp/pull/921) ([22809e3](https://github.com/roflmuffin/CounterStrikeSharp/commit/22809e3ec6aebacfa707f79ac39a2d740f92d23b))
+* chore(dev): add build & sync commands for .NET API ([87d1973](https://github.com/roflmuffin/CounterStrikeSharp/commit/87d197309be882fd55293f2c1933226d60ec8eff))
+* chore(dev): add build & sync commands to vscode tasks ([e6bfb79](https://github.com/roflmuffin/CounterStrikeSharp/commit/e6bfb7939d13769f0854e2443ae1c027a802b001))
+* chore(deps): bump libraries/metamod-source from `6091f15` to `b17dc63` by [@dependabot[bot]](https://github.com/dependabot[bot]) in [#906](https://github.com/roflmuffin/CounterStrikeSharp/pull/906) ([0ae9227](https://github.com/roflmuffin/CounterStrikeSharp/commit/0ae9227d730dfaaf05181407fb44e2ef7bb0f229))
+
+## What's Changed in v1.0.322
+* Implement CVariant functions by [@zonical](https://github.com/zonical) in [#905](https://github.com/roflmuffin/CounterStrikeSharp/pull/905) ([124ffac](https://github.com/roflmuffin/CounterStrikeSharp/commit/124ffac7a959b1d769a7b9ab570a6706f7406d3e))
+
+## What's Changed in v1.0.321
+* Continued: Fixes for game update 1.40.8.5 (03.07.2025) by [@ianlucas](https://github.com/ianlucas) in [#917](https://github.com/roflmuffin/CounterStrikeSharp/pull/917) ([018bcba](https://github.com/roflmuffin/CounterStrikeSharp/commit/018bcba6556001c26ea0bdaf8b048008bf540597))
+
+## What's Changed in v1.0.320
+* Fixes for game update 1.40.8.5 (03.07.2025) by [@AspectUnk](https://github.com/AspectUnk) in [#911](https://github.com/roflmuffin/CounterStrikeSharp/pull/911) ([bebeedf](https://github.com/roflmuffin/CounterStrikeSharp/commit/bebeedf27221e8ecffbab420272058746cc2fedd))
+
+## New Contributors
+* [@AspectUnk](https://github.com/AspectUnk) made their first contribution in [#911](https://github.com/roflmuffin/CounterStrikeSharp/pull/911)
+
+## What's Changed in v1.0.319
+* Improve FunctionReference trace logging with real user stack origin by [@SlynxCZ](https://github.com/SlynxCZ) in [#895](https://github.com/roflmuffin/CounterStrikeSharp/pull/895) ([6f66316](https://github.com/roflmuffin/CounterStrikeSharp/commit/6f663164ee887bd1fd67c3bb3aef62314ada99e2))
+
+## New Contributors
+* [@SlynxCZ](https://github.com/SlynxCZ) made their first contribution in [#895](https://github.com/roflmuffin/CounterStrikeSharp/pull/895)
+
 ## What's Changed in v1.0.318
 * fix(gameevents): merge and sort game event properties if duplicate events ([073728b](https://github.com/roflmuffin/CounterStrikeSharp/commit/073728b4ceb408e797ad0003f54ed6e232c41793))
 * chore: cleanup cpp & add clang format linting in [#862](https://github.com/roflmuffin/CounterStrikeSharp/pull/862) ([6511a00](https://github.com/roflmuffin/CounterStrikeSharp/commit/6511a0098a5fa40f523411d149cca62bdfc4d132))

@@ -1,23 +1,21 @@
 {
   "name": "SteamRT Sniper SDK",
   "image": "registry.gitlab.steamos.cloud/steamrt/sniper/sdk:latest",
-<<<<<<< HEAD
-=======
   "updateContentCommand": "git submodule update --init --recursive",
   "postCreateCommand": "cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --build build -j$(nproc)",
->>>>>>> main
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vscode.cpptools"
+        "ms-dotnettools.csdevkit",
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "GitHub.copilot",
+        "jeff-hykin.better-cpp-syntax"
       ]
     }
-<<<<<<< HEAD
-=======
   },
   "features": {
     "ghcr.io/devcontainers/features/dotnet": "8.0",
     "ghcr.io/devcontainers/features/node": "lts"
->>>>>>> main
   }
 }

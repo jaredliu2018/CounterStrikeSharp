@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## What's Changed in v1.0.327
+* fix: update core.example.json ([a8eff60](https://github.com/roflmuffin/CounterStrikeSharp/commit/a8eff60d0ba5c0102028dfd357206a5061bcc124))
+
+## What's Changed in v1.0.326
+* fix: remove requirement for https for game config updates in [#930](https://github.com/roflmuffin/CounterStrikeSharp/pull/930) ([ffb274d](https://github.com/roflmuffin/CounterStrikeSharp/commit/ffb274d636ea5ec6ff389644853005e46f42a756))
+* Support operating `bytes` type protobuf field by [@samyycX](https://github.com/samyycX) in [#922](https://github.com/roflmuffin/CounterStrikeSharp/pull/922) ([b5303d1](https://github.com/roflmuffin/CounterStrikeSharp/commit/b5303d15ab31beb6ea1299f9c7fd0e8cf4b5ca15))
+* fix: prefix dump_schema command to enable compat with Source2 Schema Dumper by GAMMACASE ([1a521ec](https://github.com/roflmuffin/CounterStrikeSharp/commit/1a521ec3bb10178d86d22fff6d4389cb4d8431ba))
+
+## What's Changed in v1.0.325
+* fix: revert internal stack trace for performance in [#927](https://github.com/roflmuffin/CounterStrikeSharp/pull/927) ([260015d](https://github.com/roflmuffin/CounterStrikeSharp/commit/260015d765f7feea8eb75773cc307dfe21c3a084))
+
+## What's Changed in v1.0.324
+* feat: Add Automatic Gamedata Updates in [#925](https://github.com/roflmuffin/CounterStrikeSharp/pull/925) ([8ab61b0](https://github.com/roflmuffin/CounterStrikeSharp/commit/8ab61b00e8d6e1321b11a0a1c132728ae227c611))
+* chore(dev): add node to devcontainer ([c746c4e](https://github.com/roflmuffin/CounterStrikeSharp/commit/c746c4e2e789e1f8e7fff255630d53549557b2ac))
+* chore(dev): create release script ([32d3e18](https://github.com/roflmuffin/CounterStrikeSharp/commit/32d3e1865792c57510ce69e502bffffc8bc9cdd9))
+
 ## What's Changed in v1.0.323
 * feat: update schema for game update 1.40.8.5 (03.07.2025) in [#921](https://github.com/roflmuffin/CounterStrikeSharp/pull/921) ([22809e3](https://github.com/roflmuffin/CounterStrikeSharp/commit/22809e3ec6aebacfa707f79ac39a2d740f92d23b))
 * chore(dev): add build & sync commands for .NET API ([87d1973](https://github.com/roflmuffin/CounterStrikeSharp/commit/87d197309be882fd55293f2c1933226d60ec8eff))

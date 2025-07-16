@@ -238,6 +238,81 @@ static void PbReadString(ScriptContext& scriptContext)
     scriptContext.SetResult(returnValue.c_str());
 }
 
+static void PbReadBytes(ScriptContext& scriptContext)
+{
+    GET_MESSAGE_OR_ERR();
+    GET_FIELD_NAME_OR_ERR();
+
+    std::string returnValue;
+    auto ptr = scriptContext.GetArgument<void*>(2);
+    auto size = scriptContext.GetArgument<int>(3);
+    auto index = scriptContext.GetArgument<int>(4);
+
+    if (ptr == nullptr)
+    {
+        scriptContext.ThrowNativeError("Invalid buffer pointer for reading field \"%s\"", fieldName);
+        return;
+    }
+
+    if (index < 0)
+    {
+        if (!message->GetString(fieldName, returnValue))
+        {
+            scriptContext.ThrowNativeError("Invalid field \"%s\" for message \"%s\"", fieldName,
+                                           message->GetProtobufMessage()->GetTypeName().c_str());
+            return;
+        }
+    }
+    else
+    {
+        if (!message->GetRepeatedString(fieldName, index, returnValue))
+        {
+            scriptContext.ThrowNativeError("Invalid field \"%s\"[%d] for message \"%s\"", fieldName, index,
+                                           message->GetProtobufMessage()->GetTypeName().c_str());
+            return;
+        }
+    }
+
+    if (returnValue.size() > size)
+    {
+        scriptContext.ThrowNativeError("Buffer size is too small for field \"%s\" for message \"%s\"", fieldName,
+                                       message->GetProtobufMessage()->GetTypeName().c_str());
+        return;
+    }
+
+    memcpy(ptr, returnValue.c_str(), returnValue.size());
+    scriptContext.SetResult(returnValue.size());
+}
+
+static void PbReadBytesLength(ScriptContext& scriptContext)
+{
+    GET_MESSAGE_OR_ERR();
+    GET_FIELD_NAME_OR_ERR();
+
+    auto index = scriptContext.GetArgument<int>(2);
+
+    std::string returnValue;
+
+    if (index < 0)
+    {
+        if (!message->GetString(fieldName, returnValue))
+        {
+            scriptContext.ThrowNativeError("Invalid field \"%s\" for message \"%s\"", fieldName,
+                                           message->GetProtobufMessage()->GetTypeName().c_str());
+        }
+    }
+    else
+    {
+        if (!message->GetRepeatedString(fieldName, index, returnValue))
+        {
+            scriptContext.ThrowNativeError("Invalid field \"%s\"[%d] for message \"%s\"", fieldName, index,
+                                           message->GetProtobufMessage()->GetTypeName().c_str());
+        }
+    }
+
+    scriptContext.SetResult(returnValue.size());
+}
+
 static void PbGetRepeatedFieldCount(ScriptContext& scriptContext)
 {
     GET_MESSAGE_OR_ERR();
@@ -392,6 +467,35 @@ static void PbSetString(ScriptContext& scriptContext)
     }
 }
 
+static void PbSetBytes(ScriptContext& scriptContext)
+{
+    GET_MESSAGE_OR_ERR();
+    GET_FIELD_NAME_OR_ERR();
+
+    auto ptr = scriptContext.GetArgument<const char*>(2);
+    auto size = scriptContext.GetArgument<int>(3);
+    auto index = scriptContext.GetArgument<int>(4);
+
+    std::string value(ptr, size);
+
+    if (index < 0)
+    {
+        if (!message->SetString(fieldName, value))
+        {
+            scriptContext.ThrowNativeError("Invalid field \"%s\" for message \"%s\"", fieldName,
+                                           message->GetProtobufMessage()->GetTypeName().c_str());
+        }
+    }
+    else
+    {
+        if (!message->SetRepeatedString(fieldName, index, value))
+        {
+            scriptContext.ThrowNativeError("Invalid field \"%s\"[%d] for message \"%s\"", fieldName, index,
+                                           message->GetProtobufMessage()->GetTypeName().c_str());
+        }
+    }
+}
+
 static void PbAddInt(ScriptContext& scriptContext)
 {
     GET_MESSAGE_OR_ERR();
@@ -456,6 +560,23 @@ static void PbAddString(ScriptContext& scriptContext)
     auto value = scriptContext.GetArgument<const char*>(2);
 
     if (!message->AddString(fieldName, value))
+    {
+        scriptContext.ThrowNativeError("Invalid field \"%s\" for message \"%s\"", fieldName,
+                                       message->GetProtobufMessage()->GetTypeName().c_str());
+    }
+}
+
+static void PbAddBytes(ScriptContext& scriptContext)
+{
+    GET_MESSAGE_OR_ERR();
+    GET_FIELD_NAME_OR_ERR();
+
+    auto ptr = scriptContext.GetArgument<const char*>(2);
+    auto size = scriptContext.GetArgument<int>(3);
+
+    std::string value(ptr, size);
+
+    if (!message->AddString(fieldName, value.c_str()))
     {
         scriptContext.ThrowNativeError("Invalid field \"%s\" for message \"%s\"", fieldName,
                                        message->GetProtobufMessage()->GetTypeName().c_str());
@@ -688,17 +809,21 @@ REGISTER_NATIVES(usermessages, {
     ScriptEngine::RegisterNativeHandler("UM_PB_READFLOAT", PbReadFloat);
     ScriptEngine::RegisterNativeHandler("UM_PB_READBOOL", PbReadBool);
     ScriptEngine::RegisterNativeHandler("UM_PB_READSTRING", PbReadString);
+    ScriptEngine::RegisterNativeHandler("UM_PB_READBYTES", PbReadBytes);
+    ScriptEngine::RegisterNativeHandler("UM_PB_READBYTESLENGTH", PbReadBytesLength);
     ScriptEngine::RegisterNativeHandler("UM_PB_GETREPEATEDFIELDCOUNT", PbGetRepeatedFieldCount);
     ScriptEngine::RegisterNativeHandler("UM_PB_SETINT", PbSetInt);
     ScriptEngine::RegisterNativeHandler("UM_PB_SETINT64", PbSetInt64);
     ScriptEngine::RegisterNativeHandler("UM_PB_SETFLOAT", PbSetFloat);
     ScriptEngine::RegisterNativeHandler("UM_PB_SETBOOL", PbSetBool);
     ScriptEngine::RegisterNativeHandler("UM_PB_SETSTRING", PbSetString);
+    ScriptEngine::RegisterNativeHandler("UM_PB_SETBYTES", PbSetBytes);
     ScriptEngine::RegisterNativeHandler("UM_PB_ADDINT", PbAddInt);
     ScriptEngine::RegisterNativeHandler("UM_PB_ADDINT64", PbAddInt64);
     ScriptEngine::RegisterNativeHandler("UM_PB_ADDFLOAT", PbAddFloat);
     ScriptEngine::RegisterNativeHandler("UM_PB_ADDBOOL", PbAddBool);
     ScriptEngine::RegisterNativeHandler("UM_PB_ADDSTRING", PbAddString);
+    ScriptEngine::RegisterNativeHandler("UM_PB_ADDBYTES", PbAddBytes);
     ScriptEngine::RegisterNativeHandler("UM_PB_REMOVEREPEATEDFIELDVALUE", PbRemoveRepeatedFieldValue);
     //    ScriptEngine::RegisterNativeHandler("UM_PB_READMESSAGE", PbReadMessage);
     //    ScriptEngine::RegisterNativeHandler("UM_PB_READREPEATEDMESSAGE", PbReadRepeatedMessage);

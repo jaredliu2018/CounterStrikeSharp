@@ -7,6 +7,11 @@ include("makefiles/shared.cmake")
 
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
+set(FUNCHOOK_BUILD_TESTS OFF CACHE BOOL "Disable building tests for funchook." FORCE)
+set(ZYDIS_BUILD_EXAMPLES OFF CACHE BOOL "Disable building examples for Zydis." FORCE)
+set(ZYDIS_BUILD_TOOLS OFF CACHE BOOL "Disable building tools for Zydis." FORCE)
+set(DYNOHOOK_BUILD_TESTS OFF CACHE BOOL "Disable building tests for funchook." FORCE)
+
 add_subdirectory(libraries/spdlog)
 add_subdirectory(libraries/dyncall)
 add_subdirectory(libraries/funchook)
@@ -43,6 +48,8 @@ set(SOURCE_FILES
     src/core/coreconfig.cpp
     src/core/gameconfig.h
     src/core/gameconfig.cpp
+    src/core/gameconfig_updater.h
+    src/core/gameconfig_updater.cpp
     src/core/log.h
     src/core/log.cpp
     src/scripting/script_engine.h

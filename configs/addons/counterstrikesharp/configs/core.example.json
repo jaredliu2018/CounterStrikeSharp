@@ -7,6 +7,6 @@
     "ServerLanguage": "en",
     "UnlockConCommands": true,
     "UnlockConVars": true,
-    "AutoUpdateEnabled": true,
+    "AutoUpdateEnabled": false,
     "AutoUpdateURL": "http://gamedata.cssharp.dev"
 }

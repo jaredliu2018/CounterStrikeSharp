@@ -44,8 +44,8 @@ class ClientMessageManager : public GlobalClass
     ~ClientMessageManager();
     void OnAllInitialized() override;
     void OnShutdown() override;
-    bool FindPlayerByNetChan(INetChannel *pChannel, CPlayerSlot *pFoundSlot);
-    bool Hook_FilterMessage(const CNetMessage *pData, INetChannel *pChannel);
+    bool FindPlayerByNetChan(INetChannel* pChannel, CPlayerSlot* pFoundSlot);
+    bool Hook_FilterMessage(const CNetMessage* pData, INetChannel* pChannel);
 
     void UnhookClientMessage(int messageId, CallbackT fnCallback, HookMode mode);
     void HookClientMessage(int messageId, CallbackT fnCallback, HookMode mode);

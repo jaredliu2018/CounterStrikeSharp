@@ -96,10 +96,9 @@ class ClientMessage
 {
   public:
     ClientMessage(INetworkMessageInternal* msgSerializable, int sender, const CNetMessage* message)
-        : msgSerializable(msgSerializable), sender(sender),
-          msg(const_cast<CNetMessage*>(message)->ToPB<protobuf::Message>())
+        : msgSerializable(msgSerializable), sender(sender), msg(const_cast<CNetMessage*>(message)->ToPB<protobuf::Message>())
     {
-         this->recipientMask = new uint64(0);
+        this->recipientMask = new uint64(0);
     }
 
     ClientMessage(std::string msgName)
@@ -108,7 +107,7 @@ class ClientMessage
         if (!this->msgSerializable) return;
 
         this->msg = this->msgSerializable->AllocateMessage()->ToPB<protobuf::Message>();
-		this->recipientMask = new uint64(0);
+        this->recipientMask = new uint64(0);
     }
 
     ClientMessage(int msgId)
@@ -120,10 +119,7 @@ class ClientMessage
         this->recipientMask = new uint64(0);
     }
 
-    ~ClientMessage()
-    {
-        delete this->recipientMask;
-    }
+    ~ClientMessage() { delete this->recipientMask; }
 
     std::string GetMessageName();
     int GetMessageID();

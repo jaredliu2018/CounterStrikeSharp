@@ -15,11 +15,7 @@
 #include <winternl.h>
 #else
 #include <elf.h>
-#include <fcntl.h>
 #include <link.h>
-#include <sys/stat.h>
-
-#include "sys/mman.h"
 #endif
 
 #include "core/gameconfig.h"
@@ -211,16 +207,6 @@ CModule::CModule(std::string_view path, std::uint64_t base)
 
     if (m_fnCreateInterface == nullptr) return;
 
-    m_hModule = dlmount(m_pszPath.c_str());
-
-    if (!m_hModule)
-    {
-        CSSHARP_CORE_ERROR("Could not find {}", m_pszPath);
-        return;
-    }
-
-    InitializeSections();
-
     m_bInitialized = true;
 }
 #else
@@ -373,17 +359,6 @@ CModule::CModule(std::string_view path, dl_phdr_info* info)
     }
 
     if (m_fnCreateInterface == nullptr) return;
-
-    m_hModule = dlmount(m_pszPath.c_str());
-
-    if (!m_hModule)
-    {
-        CSSHARP_CORE_ERROR("Could not find {}", m_pszPath);
-        return;
-    }
-
-    if (int e = GetModuleInformation(&m_base, &m_size, m_vecSections))
-        CSSHARP_CORE_ERROR("Failed to get module info for {}, error {}", m_pszPath, e);
 
     m_bInitialized = true;
 }
@@ -842,6 +817,116 @@ void* CModule::FindVirtualTable(const std::string& name)
     }
 
     Warning("Failed to find vtable for %s\n", name.c_str());
+    return nullptr;
+}
+#endif
+
+#ifdef _WIN32
+void* CModule::FindVirtualTable(const std::string& name, int32_t offset)
+{
+    auto runTimeData = GetSection(".data");
+    auto readOnlyData = GetSection(".rdata");
+
+    if (!runTimeData || !readOnlyData)
+    {
+        CSSHARP_CORE_ERROR("Failed to find .data or .rdata section");
+        return nullptr;
+    }
+
+    std::string decoratedTableName = ".?AV" + name + "@@";
+
+    SignatureIterator sigIt(runTimeData->pBase, runTimeData->size, (const byte*)decoratedTableName.c_str(), decoratedTableName.size() + 1);
+    void* typeDescriptor = sigIt.FindNext(false);
+
+    if (!typeDescriptor)
+    {
+        CSSHARP_CORE_ERROR("Failed to find type descriptor for {}", name);
+        return nullptr;
+    }
+
+    typeDescriptor = (void*)((uintptr_t)typeDescriptor - 0x10);
+
+    const uint32_t rttiTDRva = (uintptr_t)typeDescriptor - (uintptr_t)m_base;
+
+    CSSHARP_CORE_TRACE("RTTI Type Descriptor RVA: 0x{}", rttiTDRva);
+
+    SignatureIterator sigIt2(readOnlyData->pBase, readOnlyData->size, (const byte*)&rttiTDRva, sizeof(uint32_t));
+
+    while (void* completeObjectLocator = sigIt2.FindNext(false))
+    {
+        auto completeObjectLocatorHeader = (uintptr_t)completeObjectLocator - 0xC;
+        // check RTTI Complete Object Locator header, always 0x1
+        if (*(int32_t*)(completeObjectLocatorHeader) != 1) continue;
+
+        // check RTTI Complete Object Locator vtable offset
+        if (*(int32_t*)((uintptr_t)completeObjectLocator - 0x8) != offset) continue;
+
+        SignatureIterator sigIt3(readOnlyData->pBase, readOnlyData->size, (const byte*)&completeObjectLocatorHeader, sizeof(void*));
+        void* vtable = sigIt3.FindNext(false);
+
+        if (!vtable)
+        {
+            CSSHARP_CORE_ERROR("Failed to find vtable for {}", name);
+            return nullptr;
+        }
+
+        return (void*)((uintptr_t)vtable + 0x8);
+    }
+
+    CSSHARP_CORE_ERROR("Failed to find RTTI Complete Object Locator for {}", name);
+    return nullptr;
+}
+#endif
+
+#ifndef _WIN32
+void* CModule::FindVirtualTable(const std::string& name, int32_t offset)
+{
+    auto readOnlyData = GetSection(".rodata");
+    auto readOnlyRelocations = GetSection(".data.rel.ro");
+
+    if (!readOnlyData || !readOnlyRelocations)
+    {
+        CSSHARP_CORE_ERROR("Failed to find .rodata or .data.rel.ro section");
+        return nullptr;
+    }
+
+    std::string decoratedTableName = std::to_string(name.length()) + name;
+
+    SignatureIterator sigIt(readOnlyData->m_pBase, readOnlyData->m_iSize, (const byte*)decoratedTableName.c_str(),
+                            decoratedTableName.size() + 1);
+    void* classNameString = sigIt.FindNext(false);
+
+    if (!classNameString)
+    {
+        CSSHARP_CORE_ERROR("Failed to find type descriptor for {}", name);
+        return nullptr;
+    }
+
+    SignatureIterator sigIt2(readOnlyRelocations->m_pBase, readOnlyRelocations->m_iSize, (const byte*)&classNameString, sizeof(void*));
+    void* typeName = sigIt2.FindNext(false);
+
+    if (!typeName)
+    {
+        CSSHARP_CORE_ERROR("Failed to find type name for {}", name);
+        return nullptr;
+    }
+
+    void* typeInfo = (void*)((uintptr_t)typeName - 0x8);
+
+    for (const auto& sectionName : { std::string_view(".data.rel.ro"), std::string_view(".data.rel.ro.local") })
+    {
+        auto section = GetSection(sectionName);
+        if (!section) continue;
+
+        SignatureIterator sigIt3(section->m_pBase, section->m_iSize, (const byte*)&typeInfo, sizeof(void*));
+
+        while (void* vtable = sigIt3.FindNext(false))
+        {
+            if (*(int64_t*)((uintptr_t)vtable - 0x8) == (int64_t)offset) return (void*)((uintptr_t)vtable + 0x8);
+        }
+    }
+
+    CSSHARP_CORE_ERROR("Failed to find vtable for {}", name);
     return nullptr;
 }
 #endif

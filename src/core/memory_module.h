@@ -107,9 +107,7 @@ class CModule
 
     void* FindSymbol(const std::string& name);
 
-    void* FindVirtualTable(const std::string& name);
-
-    void* FindVirtualTable(const std::string& name, int32_t offset);
+    void* FindVirtualTable(const std::string& name, int32_t offset = 0);
 
     Section* GetSection(const std::string_view name)
     {

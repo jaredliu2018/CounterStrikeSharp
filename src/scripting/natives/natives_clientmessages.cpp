@@ -679,15 +679,9 @@ static void ClientMessageSetRecipients(ScriptContext& scriptContext)
 static void ClientMessageSend(ScriptContext& scriptContext)
 {
     auto message = scriptContext.GetArgument<ClientMessage*>(0);
-    uint64 recipientMask = message->GetRecipientMask() ? *message->GetRecipientMask() : 0;
-    for (int i = 0; i < 64; i++)
-    {
-        if (recipientMask & ((uint64)1 << i))
-        {
-            globals::gameEventSystem->PostEventAbstract(i, false, 1, &recipientMask, message->GetSerializableMessage(),
-                                                            message->GetProtobufMessage(), 0, NetChannelBufType_t::BUF_RELIABLE);
-        }
-    }
+    CRecipientFilter filter{};
+    filter.AddRecipientsFromMask(message->GetRecipientMask() ? *message->GetRecipientMask() : 0);
+    globals::gameEventSystem->PostEventAbstract(0, false, &filter, message->GetSerializableMessage(), message->GetProtobufMessage(), 0);
     
 }
 

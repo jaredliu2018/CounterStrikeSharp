@@ -24,8 +24,6 @@
     "offsets": {
       "windows": 106,
       "linux": 105
-      "windows": 106,
-      "linux": 105
     }
   },
   "CCSPlayerController_Respawn": {
@@ -191,8 +189,6 @@
   },
   "CBaseEntity_Teleport": {
     "offsets": {
-      "windows": 165,
-      "linux": 164
       "windows": 165,
       "linux": 164
     }

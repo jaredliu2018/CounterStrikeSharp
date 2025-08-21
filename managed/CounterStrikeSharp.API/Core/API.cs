@@ -2730,5 +2730,18 @@ namespace CounterStrikeSharp.API.Core
 			return (uint)ScriptContext.GlobalScriptContext.GetResult(typeof(uint));
 			}
 		}
+
+        public static void SetPlayerNameOverride(int slot, string name)
+        {
+            lock (ScriptContext.GlobalScriptContext.Lock)
+            {
+                ScriptContext.GlobalScriptContext.Reset();
+                ScriptContext.GlobalScriptContext.Push(slot);
+                ScriptContext.GlobalScriptContext.Push(name);
+                ScriptContext.GlobalScriptContext.SetIdentifier(0xB0195398);
+                ScriptContext.GlobalScriptContext.Invoke();
+                ScriptContext.GlobalScriptContext.CheckErrors();
+            }
+        }
     }
 }

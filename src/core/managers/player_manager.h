@@ -118,6 +118,7 @@ class CPlayer
 
   public:
     std::string m_name;
+    std::string m_name_override;
     IPlayerInfo* m_info = nullptr;
     std::string m_auth_id;
     bool m_is_connected = false;
@@ -133,6 +134,7 @@ class CPlayer
     CPlayerBitVec m_selfMutes[64] = {};
     uint64 m_buttonState = ~0;
     void SetName(const char* name);
+    void SetNameOverride(const char* name);
     INetChannelInfo* GetNetInfo() const;
 };
 
@@ -154,6 +156,7 @@ class PlayerManager : public GlobalClass
     void OnClientDisconnect_Post(
         CPlayerSlot slot, ENetworkDisconnectionReason reason, const char* pszName, uint64 xuid, const char* pszNetworkID) const;
     void OnClientVoice(CPlayerSlot slot) const;
+    bool OnGetPlayerInfo(CPlayerSlot slot, google::protobuf::Message& info) const;
     void OnAuthorized(CPlayer* player) const;
     void OnServerActivate(edict_t* pEdictList, int edictCount, int clientMax) const;
     void OnThink(bool last_tick) const;

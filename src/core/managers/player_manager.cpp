@@ -46,6 +46,7 @@
 #include <entity2/entitysystem.h>
 #include "entity/dump.h"
 #include <vprof.h>
+#include "networkbasetypes.pb.h"
 // extern CEntitySystem *g_pEntitySystem;
 
 SH_DECL_HOOK4_void(IServerGameClients, ClientActive, SH_NOATTRIB, 0, CPlayerSlot, bool, const char*, uint64);
@@ -59,6 +60,8 @@ SH_DECL_HOOK6_void(IServerGameClients, OnClientConnected, SH_NOATTRIB, 0, CPlaye
 SH_DECL_HOOK6(IServerGameClients, ClientConnect, SH_NOATTRIB, 0, bool, CPlayerSlot, const char*, uint64, const char*, bool, CBufferString*);
 
 SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand&);
+
+SH_DECL_HOOK2(IVEngineServer2, GetPlayerInfo, SH_NOATTRIB, 0, bool, CPlayerSlot, google::protobuf::Message&);
 
 namespace counterstrikesharp {
 
@@ -76,6 +79,8 @@ void PlayerManager::OnAllInitialized()
                 true);
     SH_ADD_HOOK(IServerGameClients, ClientCommand, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientCommand), false);
     SH_ADD_HOOK(IServerGameClients, ClientVoice, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientVoice), true);
+
+    SH_ADD_HOOK(IVEngineServer2, GetPlayerInfo, globals::engine, SH_MEMBER(this, &PlayerManager::OnGetPlayerInfo), true);
 
     m_on_client_connect_callback = globals::callbackManager.CreateCallback("OnClientConnect");
     m_on_client_connected_callback = globals::callbackManager.CreateCallback("OnClientConnected");
@@ -100,6 +105,8 @@ void PlayerManager::OnShutdown()
                    SH_MEMBER(this, &PlayerManager::OnClientDisconnect_Post), true);
     SH_REMOVE_HOOK(IServerGameClients, ClientCommand, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientCommand), false);
     SH_REMOVE_HOOK(IServerGameClients, ClientVoice, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientVoice), true);
+
+    SH_REMOVE_HOOK(IVEngineServer2, GetPlayerInfo, globals::engine, SH_MEMBER(this, &PlayerManager::OnGetPlayerInfo), true);
 
     globals::callbackManager.ReleaseCallback(m_on_client_connect_callback);
     globals::callbackManager.ReleaseCallback(m_on_client_connected_callback);
@@ -276,6 +283,23 @@ void PlayerManager::OnClientVoice(CPlayerSlot slot) const
     m_on_client_voice_callback->ScriptContext().Reset();
     m_on_client_voice_callback->ScriptContext().Push(slot.Get());
     m_on_client_voice_callback->Execute();
+}
+
+bool PlayerManager::OnGetPlayerInfo(CPlayerSlot slot, google::protobuf::Message& info) const
+{
+    CSSHARP_CORE_TRACE("[PlayerManager][OnGetPlayerInfo] - {}", slot.Get());
+
+    auto pMsgPlayerInfo = (CMsgPlayerInfo*)&info;
+
+    std::string name = pMsgPlayerInfo->name();
+
+    auto pPlayer = globals::playerManager.GetPlayerBySlot(slot.Get());
+    if (pPlayer != nullptr && pPlayer->m_name_override.length() > 0 && name != pPlayer->m_name_override)
+    {
+        pMsgPlayerInfo->set_name(pPlayer->m_name_override.c_str());
+    }
+
+    RETURN_META_VALUE(MRES_IGNORED, true);
 }
 
 void PlayerManager::OnLevelEnd()
@@ -484,6 +508,7 @@ void CPlayer::PrintToConsole(const char* message) const
 // }
 
 void CPlayer::SetName(const char* name) { m_name = strdup(name); }
+void CPlayer::SetNameOverride(const char* name) { m_name_override = strdup(name); }
 
 INetChannelInfo* CPlayer::GetNetInfo() const { return globals::engine->GetPlayerNetInfo(m_slot); }
 

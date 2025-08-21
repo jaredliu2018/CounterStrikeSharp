@@ -284,6 +284,13 @@ public partial class CCSPlayerController
         return NativeAPI.GetClientListening(Handle, sender.Handle);
     }
 
+    /// <exception cref="InvalidOperationException">Entity is not valid</exception>
+    public void SetNameOverride(string name)
+    {
+        Guard.IsValidEntity(this);
+        NativeAPI.SetPlayerNameOverride(Slot, name);
+    }
+
     public int Slot => (int)Index - 1;
 
     /// <summary>

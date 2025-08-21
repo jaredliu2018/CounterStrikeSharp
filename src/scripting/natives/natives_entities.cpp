@@ -273,6 +273,20 @@ SoundEventGuid_t EmitSoundFilter(ScriptContext& script_context)
     return ret.m_nGuid;
 }
 
+void SetPlayerNameOverride(ScriptContext& script_context)
+{
+    auto iSlot = script_context.GetArgument<int>(0);
+    auto name = script_context.GetArgument<const char*>(1);
+
+    auto pPlayer = globals::playerManager.GetPlayerBySlot(iSlot);
+    if (pPlayer == nullptr)
+    {
+        return;
+    }
+
+    pPlayer->SetNameOverride(name);
+}
+
 REGISTER_NATIVES(entities, {
     ScriptEngine::RegisterNativeHandler("GET_ENTITY_FROM_INDEX", GetEntityFromIndex);
     ScriptEngine::RegisterNativeHandler("GET_USERID_FROM_INDEX", GetUserIdFromIndex);
@@ -291,5 +305,6 @@ REGISTER_NATIVES(entities, {
     ScriptEngine::RegisterNativeHandler("ACCEPT_INPUT", AcceptInput);
     ScriptEngine::RegisterNativeHandler("ADD_ENTITY_IO_EVENT", AddEntityIOEvent);
     ScriptEngine::RegisterNativeHandler("EMIT_SOUND_FILTER", EmitSoundFilter);
+    ScriptEngine::RegisterNativeHandler("SET_PLAYER_NAME_OVERRIDE", SetPlayerNameOverride);
 })
 } // namespace counterstrikesharp

@@ -1,3 +1,21 @@
+## What's Changed in v1.0.340
+* fix: update for CS2 09-17-25 (patch 20022951) by [@oylsister](https://github.com/oylsister) in [#1037](https://github.com/roflmuffin/CounterStrikeSharp/pull/1037) ([2c80971](https://github.com/roflmuffin/CounterStrikeSharp/commit/2c809713937675cef245b79d9ad39674b4d37fd8))
+* fix: Invalid string pointers passed by `SetResult` due to C++ memory lifecycle by [@ELDment](https://github.com/ELDment) in [#1032](https://github.com/roflmuffin/CounterStrikeSharp/pull/1032) ([44922da](https://github.com/roflmuffin/CounterStrikeSharp/commit/44922da680a5c167d5745267f849d37de35ca4b1))
+* feat: Implement bypass hook for Invoke method by [@ELDment](https://github.com/ELDment) in [#1027](https://github.com/roflmuffin/CounterStrikeSharp/pull/1027) ([1ca8ff2](https://github.com/roflmuffin/CounterStrikeSharp/commit/1ca8ff217289ac09eec195828af5294ebebcca0b))
+
+## New Contributors
+* [@oylsister](https://github.com/oylsister) made their first contribution in [#1037](https://github.com/roflmuffin/CounterStrikeSharp/pull/1037)
+* [@ELDment](https://github.com/ELDment) made their first contribution in [#1032](https://github.com/roflmuffin/CounterStrikeSharp/pull/1032)
+
+## What's Changed in v1.0.339
+* Fixed offset values of Respawn and Slay for Windows by [@zakriamansoor47](https://github.com/zakriamansoor47) in [#1026](https://github.com/roflmuffin/CounterStrikeSharp/pull/1026) ([54f8d5e](https://github.com/roflmuffin/CounterStrikeSharp/commit/54f8d5ef95dd4aa0ccf118ff734fdf5adf6b4d32))
+
+## New Contributors
+* [@zakriamansoor47](https://github.com/zakriamansoor47) made their first contribution in [#1026](https://github.com/roflmuffin/CounterStrikeSharp/pull/1026)
+
+## What's Changed in v1.0.338
+* Update gamedata.json by [@xLeviNx](https://github.com/xLeviNx) in [#1020](https://github.com/roflmuffin/CounterStrikeSharp/pull/1020) ([72d66cb](https://github.com/roflmuffin/CounterStrikeSharp/commit/72d66cb5d52ccaa87881a40663fb7891007398e0))
+
 ## What's Changed in v1.0.337
 * feat(schema): add new schema classes for build 19644975 ([fc7301a](https://github.com/roflmuffin/CounterStrikeSharp/commit/fc7301a8d374ea8888f01703e43fd2d5a8bad488))
 * feat(schema): update schema classes for build 19644975 ([ef4b8f9](https://github.com/roflmuffin/CounterStrikeSharp/commit/ef4b8f9442eee6ddeadcb0fa8775c2eba7108e90))

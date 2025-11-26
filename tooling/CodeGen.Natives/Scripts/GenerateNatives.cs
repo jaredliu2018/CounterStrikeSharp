@@ -88,8 +88,7 @@ public partial class Generators
             return returnStr.ToString();
         }));
 
-        var result = $@"
-using System;
+        var result = $@"using System;
 using CounterStrikeSharp.API.Modules.Memory;
 using CounterStrikeSharp.API.Modules.UserMessages;
 using CounterStrikeSharp.API.Modules.ClientMessages;
@@ -106,7 +105,7 @@ namespace CounterStrikeSharp.API.Core
 
         Console.WriteLine($"Generated C# bindings for {natives.Count} methods successfully.");
 
-        File.WriteAllText(Path.Join(Helpers.GetRootDirectory(), "managed/CounterStrikeSharp.API/Core/API.cs"),
+        File.WriteAllText(Path.Join(Helpers.GetRootDirectory(), "managed/CounterStrikeSharp.API/Generated/Natives/API.cs"),
             result);
     }
 }

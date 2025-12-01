@@ -291,6 +291,13 @@ public partial class CCSPlayerController
         NativeAPI.SetPlayerNameOverride(Slot, name);
     }
 
+    /// <exception cref="InvalidOperationException">Entity is not valid</exception>
+    public void SetAvatar(IntPtr buffer, int size)
+    {
+        Guard.IsValidEntity(this);
+        NativeAPI.SetPlayerAvatar(Slot, buffer, size);
+    }
+
     public int Slot => (int)Index - 1;
 
     /// <summary>

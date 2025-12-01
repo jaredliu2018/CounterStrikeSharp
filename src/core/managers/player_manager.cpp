@@ -47,6 +47,7 @@
 #include "entity/dump.h"
 #include <vprof.h>
 #include "networkbasetypes.pb.h"
+#include "networkstringtabledefs.h"
 // extern CEntitySystem *g_pEntitySystem;
 
 SH_DECL_HOOK4_void(IServerGameClients, ClientActive, SH_NOATTRIB, 0, CPlayerSlot, bool, const char*, uint64);
@@ -509,6 +510,34 @@ void CPlayer::PrintToConsole(const char* message) const
 
 void CPlayer::SetName(const char* name) { m_name = strdup(name); }
 void CPlayer::SetNameOverride(const char* name) { m_name_override = strdup(name); }
+
+void CPlayer::SetAvatar(void* buffer, int size)
+{
+    if (buffer == NULL || size > 16384)
+    {
+        return;
+    }
+
+    auto table = globals::netStringTables->FindTable("ServerAvatarOverrides");
+
+    if (table != NULL)
+    {
+        char steamid[32];
+        snprintf(steamid, sizeof(steamid), "%llu", (unsigned long long)GetSteamId()->ConvertToUint64());
+
+        int index = table->FindStringIndex(steamid);
+
+        if (index != INVALID_STRING_INDEX)
+        {
+            memcpy(m_avatar, buffer, size);
+
+            SetStringUserDataRequest_t req;
+            req.m_pRawData = m_avatar;
+            req.m_cbDataSize = size;
+            table->SetStringUserData(index, &req, true);
+        }
+    }
+}
 
 INetChannelInfo* CPlayer::GetNetInfo() const { return globals::engine->GetPlayerNetInfo(m_slot); }
 

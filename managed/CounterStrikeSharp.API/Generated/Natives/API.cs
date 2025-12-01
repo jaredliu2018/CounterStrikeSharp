@@ -2765,5 +2765,19 @@ namespace CounterStrikeSharp.API.Core
                 ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
+
+        public static void SetPlayerAvatar(int slot, IntPtr buffer, int size)
+        {
+            lock (ScriptContext.GlobalScriptContext.Lock)
+            {
+                ScriptContext.GlobalScriptContext.Reset();
+                ScriptContext.GlobalScriptContext.Push(slot);
+                ScriptContext.GlobalScriptContext.Push(buffer);
+                ScriptContext.GlobalScriptContext.Push(size);
+                ScriptContext.GlobalScriptContext.SetIdentifier(0x4AA37565);
+                ScriptContext.GlobalScriptContext.Invoke();
+                ScriptContext.GlobalScriptContext.CheckErrors();
+            }
+        }
     }
 }

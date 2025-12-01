@@ -287,6 +287,22 @@ void SetPlayerNameOverride(ScriptContext& script_context)
     pPlayer->SetNameOverride(name);
 }
 
+void SetPlayerAvatar(ScriptContext& script_context)
+{
+    auto iSlot = script_context.GetArgument<int>(0);
+    auto buffer = script_context.GetArgument<void *>(1);
+    auto size = script_context.GetArgument<int>(2);
+    
+    auto pPlayer = globals::playerManager.GetPlayerBySlot(iSlot);
+    if (pPlayer == nullptr)
+    {
+        return;
+    }
+
+    pPlayer->SetAvatar(buffer, size);
+}
+
+
 REGISTER_NATIVES(entities, {
     ScriptEngine::RegisterNativeHandler("GET_ENTITY_FROM_INDEX", GetEntityFromIndex);
     ScriptEngine::RegisterNativeHandler("GET_USERID_FROM_INDEX", GetUserIdFromIndex);
@@ -306,5 +322,6 @@ REGISTER_NATIVES(entities, {
     ScriptEngine::RegisterNativeHandler("ADD_ENTITY_IO_EVENT", AddEntityIOEvent);
     ScriptEngine::RegisterNativeHandler("EMIT_SOUND_FILTER", EmitSoundFilter);
     ScriptEngine::RegisterNativeHandler("SET_PLAYER_NAME_OVERRIDE", SetPlayerNameOverride);
+    ScriptEngine::RegisterNativeHandler("SET_PLAYER_AVATAR", SetPlayerAvatar);
 })
 } // namespace counterstrikesharp

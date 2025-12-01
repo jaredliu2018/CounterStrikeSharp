@@ -119,7 +119,6 @@ class CPlayer
   public:
     std::string m_name;
     std::string m_name_override;
-    char m_avatar[16384] = {};
     IPlayerInfo* m_info = nullptr;
     std::string m_auth_id;
     bool m_is_connected = false;

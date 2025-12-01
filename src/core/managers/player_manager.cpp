@@ -529,10 +529,8 @@ void CPlayer::SetAvatar(void* buffer, int size)
 
         if (index != INVALID_STRING_INDEX)
         {
-            memcpy(m_avatar, buffer, size);
-
             SetStringUserDataRequest_t req;
-            req.m_pRawData = m_avatar;
+            req.m_pRawData = buffer;
             req.m_cbDataSize = size;
             table->SetStringUserData(index, &req, true);
         }

@@ -522,10 +522,14 @@ void CPlayer::SetAvatar(void* buffer, int size)
 
     if (table != NULL)
     {
-        char steamid[32];
-        snprintf(steamid, sizeof(steamid), "%llu", (unsigned long long)GetSteamId()->ConvertToUint64());
+        char steamidStr[32];
+        auto pSteamId = GetSteamId();
+        
+        if (pSteamId == nullptr) return;
 
-        int index = table->FindStringIndex(steamid);
+        snprintf(steamidStr, sizeof(steamidStr), "%llu", (unsigned long long)pSteamId->ConvertToUint64());
+
+        int index = table->FindStringIndex(steamidStr);
 
         if (index != INVALID_STRING_INDEX)
         {

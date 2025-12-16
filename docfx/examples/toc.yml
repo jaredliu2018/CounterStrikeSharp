@@ -23,6 +23,8 @@ items:
     href: WithUserMessages.md
   - name: Client Messages
     href: WithClientMessages.md
+  - name: Virtual Functions
+    href: WithVirtualFunctions.md
   - name: Voice Overrides
     href: WithVoiceOverrides.md
   - name: Warcraft Plugin

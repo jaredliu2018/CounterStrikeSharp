@@ -1,3 +1,33 @@
+## What's Changed in v1.0.352
+* feat(listeners): add entity & player damage listeners in [#1147](https://github.com/roflmuffin/CounterStrikeSharp/pull/1147) ([395b237](https://github.com/roflmuffin/CounterStrikeSharp/commit/395b237dce74f4b1d933e8df3e5518818107b274))
+
+## What's Changed in v1.0.351
+* feat: add `CEntityKeyValues` with dispatch in [#1146](https://github.com/roflmuffin/CounterStrikeSharp/pull/1146) ([0112853](https://github.com/roflmuffin/CounterStrikeSharp/commit/011285338148436f97768fc6849e1719f59398a7))
+
+## What's Changed in v1.0.350
+* Revert "fix(admin): root flags in RequirePermissionsOr & registering admin groups " ([50a42a2](https://github.com/roflmuffin/CounterStrikeSharp/commit/50a42a2472173b13093353e6efc652c233356555))
+
+## What's Changed in v1.0.349
+* feat(memory): allow hooking of offset based virtual functions in [#1143](https://github.com/roflmuffin/CounterStrikeSharp/pull/1143) ([3990128](https://github.com/roflmuffin/CounterStrikeSharp/commit/3990128c8cfd1ba1eb97223c7b34210ca2dc9205))
+* fix(admin): root flags in RequirePermissionsOr & registering admin groups by [@zonical](https://github.com/zonical) in [#700](https://github.com/roflmuffin/CounterStrikeSharp/pull/700) ([436fca1](https://github.com/roflmuffin/CounterStrikeSharp/commit/436fca197d22051a732c780d82ddd958c767c310))
+* chore(i18n): add Simplified and Traditional Chinese translations by [@ELDment](https://github.com/ELDment) in [#1123](https://github.com/roflmuffin/CounterStrikeSharp/pull/1123) ([cfab6af](https://github.com/roflmuffin/CounterStrikeSharp/commit/cfab6af7e156dc8eb4f6289291610af7b914a0bb))
+* fix(schema): add missing `new` property specifiers ([00fccae](https://github.com/roflmuffin/CounterStrikeSharp/commit/00fccae3793bf4e136708cefc74bd5360a20cc9c))
+* chore(ci): auto merge hl2sdk dependabot PRs ([1091401](https://github.com/roflmuffin/CounterStrikeSharp/commit/109140185533a5744c3de16d299b1f4c6740d3f0))
+* chore(deps): revert back to daily dependabot updates ([1ac05e7](https://github.com/roflmuffin/CounterStrikeSharp/commit/1ac05e70dad4a9f65c0c180408756047d7d4a4dc))
+* chore(deps): run dependabot every 15 minutes ([1460830](https://github.com/roflmuffin/CounterStrikeSharp/commit/146083050e421a61afb8c1d9fdf63ddcab0d5ffb))
+
+## What's Changed in v1.0.348
+* chore(deps): update hl2sdk ([ad731c1](https://github.com/roflmuffin/CounterStrikeSharp/commit/ad731c160125b4ad4e8019d8060047cc87bacf63))
+* chore(ci): disable discord notifications for pre-release versions by [@Copilot](https://github.com/Copilot) in [#1132](https://github.com/roflmuffin/CounterStrikeSharp/pull/1132) ([1a6ff70](https://github.com/roflmuffin/CounterStrikeSharp/commit/1a6ff70df1f7cf6614bd87a5c33efd803a24477b))
+* fix: do nothing when pressing 7 (prev) on the 1st page of a menu by [@ericek111](https://github.com/ericek111) in [#1127](https://github.com/roflmuffin/CounterStrikeSharp/pull/1127) ([edb0872](https://github.com/roflmuffin/CounterStrikeSharp/commit/edb0872c70c4e3a20e96b15e26205a70a99bfc10))
+* fix: prevent VirtualFunction memory leak in native layer by [@ELDment](https://github.com/ELDment) in [#1121](https://github.com/roflmuffin/CounterStrikeSharp/pull/1121) ([ff29836](https://github.com/roflmuffin/CounterStrikeSharp/commit/ff298368c200a750c3651778dc226383549f0923))
+* feat: add translations for pt-BR by [@crashzk](https://github.com/crashzk) in [#1122](https://github.com/roflmuffin/CounterStrikeSharp/pull/1122) ([832b687](https://github.com/roflmuffin/CounterStrikeSharp/commit/832b68776cc30e5a93b6cd5faeaf5d5aeef9381c))
+
+## New Contributors
+* [@Copilot](https://github.com/Copilot) made their first contribution in [#1132](https://github.com/roflmuffin/CounterStrikeSharp/pull/1132)
+* [@ericek111](https://github.com/ericek111) made their first contribution in [#1127](https://github.com/roflmuffin/CounterStrikeSharp/pull/1127)
+* [@crashzk](https://github.com/crashzk) made their first contribution in [#1122](https://github.com/roflmuffin/CounterStrikeSharp/pull/1122)
+
 ## What's Changed in v1.0.347
 * chore: update signatures for GiveNamedItem by [@ianlucas](https://github.com/ianlucas) in [#1120](https://github.com/roflmuffin/CounterStrikeSharp/pull/1120) ([6461235](https://github.com/roflmuffin/CounterStrikeSharp/commit/6461235c2a5d2cafd1444cebcb0477e1c44ad670))
 * chore(generators): regenerate game events, schema & natives into `generated/` subfolder ([f32e745](https://github.com/roflmuffin/CounterStrikeSharp/commit/f32e74515b7a10beb06e1e35406ade8a80ceb6d2))

@@ -290,8 +290,9 @@ void SetPlayerNameOverride(ScriptContext& script_context)
 void SetPlayerAvatar(ScriptContext& script_context)
 {
     auto iSlot = script_context.GetArgument<int>(0);
-    auto buffer = script_context.GetArgument<void *>(1);
-    auto size = script_context.GetArgument<int>(2);
+    auto steamid = script_context.GetArgument<uint64>(1);
+    auto buffer = script_context.GetArgument<void *>(2);
+    auto size = script_context.GetArgument<int>(3);
     
     auto pPlayer = globals::playerManager.GetPlayerBySlot(iSlot);
     if (pPlayer == nullptr)
@@ -299,7 +300,7 @@ void SetPlayerAvatar(ScriptContext& script_context)
         return;
     }
 
-    pPlayer->SetAvatar(buffer, size);
+    pPlayer->SetAvatar(steamid, buffer, size);
 }
 
 

@@ -2766,12 +2766,13 @@ namespace CounterStrikeSharp.API.Core
             }
         }
 
-        public static void SetPlayerAvatar(int slot, IntPtr buffer, int size)
+        public static void SetPlayerAvatar(int slot, ulong steamid, IntPtr buffer, int size)
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
                 ScriptContext.GlobalScriptContext.Reset();
                 ScriptContext.GlobalScriptContext.Push(slot);
+                ScriptContext.GlobalScriptContext.Push(steamid);
                 ScriptContext.GlobalScriptContext.Push(buffer);
                 ScriptContext.GlobalScriptContext.Push(size);
                 ScriptContext.GlobalScriptContext.SetIdentifier(0x4AA37565);

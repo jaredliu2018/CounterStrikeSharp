@@ -511,7 +511,7 @@ void CPlayer::PrintToConsole(const char* message) const
 void CPlayer::SetName(const char* name) { m_name = strdup(name); }
 void CPlayer::SetNameOverride(const char* name) { m_name_override = strdup(name); }
 
-void CPlayer::SetAvatar(void* buffer, int size)
+void CPlayer::SetAvatar(uint64 steamid, void* buffer, int size)
 {
     if (buffer == NULL || size > 16384)
     {
@@ -523,11 +523,8 @@ void CPlayer::SetAvatar(void* buffer, int size)
     if (table != NULL)
     {
         char steamidStr[32];
-        auto pSteamId = GetSteamId();
-        
-        if (pSteamId == nullptr) return;
 
-        snprintf(steamidStr, sizeof(steamidStr), "%llu", (unsigned long long)pSteamId->ConvertToUint64());
+        snprintf(steamidStr, sizeof(steamidStr), "%llu", steamid);
 
         int index = table->FindStringIndex(steamidStr);
 

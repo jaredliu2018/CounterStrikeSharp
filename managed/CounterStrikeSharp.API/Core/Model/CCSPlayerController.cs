@@ -292,10 +292,10 @@ public partial class CCSPlayerController
     }
 
     /// <exception cref="InvalidOperationException">Entity is not valid</exception>
-    public void SetAvatar(IntPtr buffer, int size)
+    public void SetAvatar(ulong steamid, IntPtr buffer, int size)
     {
         Guard.IsValidEntity(this);
-        NativeAPI.SetPlayerAvatar(Slot, buffer, size);
+        NativeAPI.SetPlayerAvatar(Slot, steamid, buffer, size);
     }
 
     public int Slot => (int)Index - 1;

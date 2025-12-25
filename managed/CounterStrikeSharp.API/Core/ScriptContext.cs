@@ -276,12 +276,6 @@ namespace CounterStrikeSharp.API.Core
 
                 return;
             }
-            if (arg is byte[])
-            {
-                SetResultBytes(context, (byte[])arg);
-
-                return;
-            }
             else if (arg is InputArgument ia)
             {
                 SetResultInternal(context, ia.Value);
@@ -392,30 +386,6 @@ namespace CounterStrikeSharp.API.Core
             }
         }
 
-        [SecurityCritical]
-        internal unsafe void SetResultBytes(fxScriptContext* cxt, byte[] bytes)
-        {
-            var ptr = IntPtr.Zero;
-
-            if (bytes != null)
-            {
-				ptr = Marshal.AllocHGlobal(bytes.Length + 4);
-
-                byte[] lenBytes = BitConverter.GetBytes(bytes.Length);
-
-                Marshal.Copy(lenBytes, 0, ptr, 4);
-
-                Marshal.Copy(bytes, 0, ptr + 4, bytes.Length);
-
-                ms_finalizers.Enqueue(() => Free(ptr));
-            }
-
-            unsafe
-            {
-                *(IntPtr*)(&cxt->result[8]) = ptr;
-            }
-        }
-
         [SecuritySafeCritical]
 		private void Free(IntPtr ptr)
 		{
@@ -510,36 +480,6 @@ namespace CounterStrikeSharp.API.Core
 				Marshal.Copy(nativeUtf8, buffer, 0, buffer.Length);
 				return Encoding.UTF8.GetString(buffer);
 			}
-
-            if (type == typeof(byte[]))
-            {
-                var nativeLen = *(IntPtr*)&ptr[0];
-
-                if (nativeLen == IntPtr.Zero)
-                {
-                    return null;
-                }
-
-                var dataLen = Marshal.ReadInt32(nativeLen);
-
-                if (dataLen == 0)
-                {
-                    return null;
-                }
-
-                var nativeData = nativeLen + 4;
-
-                var len = 0;
-                while(len < dataLen)
-                {
-                    Marshal.ReadByte(nativeData, len);
-                    ++len;
-                }
-
-                var buffer = new byte[len];
-                Marshal.Copy(nativeData, buffer, 0, buffer.Length);
-                return buffer;
-            }
 
             if (typeof(NativeObject).IsAssignableFrom(type))
 			{

@@ -47,7 +47,23 @@ public class ClientMessage : NativeObject, IDisposable
     public float ReadFloat(string fieldName, int? index = null) => NativeAPI.PbReadfloat(this, fieldName, index ?? -1);
     public double ReadDouble(string fieldName, int? index = null) => NativeAPI.PbReadfloat(this, fieldName, index ?? -1);
     public string ReadString(string fieldName, int? index = null) => NativeAPI.PbReadstring(this, fieldName, index ?? -1);
-    public byte[] ReadBytes(string fieldName, int? index = null) => NativeAPI.PbReadbytes(this, fieldName, index ?? -1);
+
+    public byte[] ReadBytes(string fieldName, int? index = null)
+    {
+        var size = NativeAPI.PbReadbyteslength(this, fieldName, index ?? -1);
+        if (size == 0) return Array.Empty<byte>();
+        var bytes = new byte[size];
+        unsafe
+        {
+            fixed (byte* ptr = bytes)
+            {
+                var length = NativeAPI.PbReadbytes(this, fieldName, (IntPtr)ptr, size, index ?? -1);
+                return bytes;
+            }
+        }
+    }
+
+
     public bool ReadBool(string fieldName, int? index = null) => NativeAPI.PbReadbool(this, fieldName, index ?? -1);
     public void SetInt(string fieldName, int value, int? index = null) => NativeAPI.PbSetint(this, fieldName, value, index ?? -1);
     public void SetUInt(string fieldName, uint value, int? index = null) => NativeAPI.PbSetint(this, fieldName, (int)value, index ?? -1);
@@ -62,8 +78,19 @@ public class ClientMessage : NativeObject, IDisposable
         NativeAPI.PbSetfloat(this, fieldName, (float)value, index ?? -1);
 
     public void SetString(string fieldName, string value, int? index = null) => NativeAPI.PbSetstring(this, fieldName, value, index ?? -1);
-    public void SetBytes(string fieldName, byte[] value, int? index = null) => NativeAPI.PbSetbytes(this, fieldName, value, index ?? -1);
+    
     public void SetBool(string fieldName, bool value, int? index = null) => NativeAPI.PbSetbool(this, fieldName, value, index ?? -1);
+
+    public void SetBytes(string fieldName, byte[] value, int? index = null)
+    {
+        unsafe
+        {
+            fixed (byte* ptr = value)
+            {
+                NativeAPI.PbSetbytes(this, fieldName, (IntPtr)ptr, value.Length, index ?? -1);
+            }
+        }
+    }
 
     public int GetRepeatedFieldCount(string fieldName) => NativeAPI.PbGetrepeatedfieldcount(this, fieldName);
 

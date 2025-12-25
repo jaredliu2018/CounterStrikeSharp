@@ -248,8 +248,15 @@ static void PbReadBytes(ScriptContext& scriptContext)
     GET_FIELD_NAME_OR_ERR();
 
     std::string returnValue;
+    auto ptr = scriptContext.GetArgument<void*>(2);
+    auto size = scriptContext.GetArgument<int>(3);
+    auto index = scriptContext.GetArgument<int>(4);
 
-    auto index = scriptContext.GetArgument<int>(2);
+    if (ptr == nullptr)
+    {
+        scriptContext.ThrowNativeError("Invalid buffer pointer for reading field \"%s\"", fieldName);
+        return;
+    }
 
     if (index < 0)
     {
@@ -270,12 +277,44 @@ static void PbReadBytes(ScriptContext& scriptContext)
         }
     }
 
-    int len = returnValue.length();
-    char* lenBuf = reinterpret_cast<char*>(&len);
-    std::string lenStr = std::string(lenBuf, 4);
-    returnValue = lenStr + returnValue;
+    if (returnValue.size() > size)
+    {
+        scriptContext.ThrowNativeError("Buffer size is too small for field \"%s\" for message \"%s\"", fieldName,
+                                       message->GetProtobufMessage()->GetTypeName().c_str());
+        return;
+    }
 
-    scriptContext.SetResult(returnValue.c_str());
+    memcpy(ptr, returnValue.c_str(), returnValue.size());
+    scriptContext.SetResult(returnValue.size());
+}
+
+static void PbReadBytesLength(ScriptContext& scriptContext)
+{
+    GET_MESSAGE_OR_ERR();
+    GET_FIELD_NAME_OR_ERR();
+
+    auto index = scriptContext.GetArgument<int>(2);
+
+    std::string returnValue;
+
+    if (index < 0)
+    {
+        if (!message->GetString(fieldName, returnValue))
+        {
+            scriptContext.ThrowNativeError("Invalid field \"%s\" for message \"%s\"", fieldName,
+                                           message->GetProtobufMessage()->GetTypeName().c_str());
+        }
+    }
+    else
+    {
+        if (!message->GetRepeatedString(fieldName, index, returnValue))
+        {
+            scriptContext.ThrowNativeError("Invalid field \"%s\"[%d] for message \"%s\"", fieldName, index,
+                                           message->GetProtobufMessage()->GetTypeName().c_str());
+        }
+    }
+
+    scriptContext.SetResult(returnValue.size());
 }
 
 static void PbGetRepeatedFieldCount(ScriptContext& scriptContext)
@@ -437,9 +476,11 @@ static void PbSetBytes(ScriptContext& scriptContext)
     GET_MESSAGE_OR_ERR();
     GET_FIELD_NAME_OR_ERR();
 
-    auto len = *(int*)scriptContext.GetArgument<const char*>(2);
-    auto value = std::string(scriptContext.GetArgument<const char*>(2) + 4, len);
-    auto index = scriptContext.GetArgument<int>(3);
+    auto ptr = scriptContext.GetArgument<const char*>(2);
+    auto size = scriptContext.GetArgument<int>(3);
+    auto index = scriptContext.GetArgument<int>(4);
+
+    std::string value(ptr, size);
 
     if (index < 0)
     {
@@ -682,7 +723,6 @@ static void ClientMessageSend(ScriptContext& scriptContext)
     CRecipientFilter filter{};
     filter.AddRecipientsFromMask(message->GetRecipientMask() ? *message->GetRecipientMask() : 0);
     globals::gameEventSystem->PostEventAbstract(0, false, &filter, message->GetSerializableMessage(), message->GetProtobufMessage(), 0);
-    
 }
 
 static void ClientMessageDelete(ScriptContext& scriptContext)
@@ -759,6 +799,7 @@ REGISTER_NATIVES(clientmessages, {
     ScriptEngine::RegisterNativeHandler("CM_PB_READBOOL", PbReadBool);
     ScriptEngine::RegisterNativeHandler("CM_PB_READSTRING", PbReadString);
     ScriptEngine::RegisterNativeHandler("CM_PB_READBYTES", PbReadBytes);
+    ScriptEngine::RegisterNativeHandler("CM_PB_READBYTESLENGTH", PbReadBytesLength);
     ScriptEngine::RegisterNativeHandler("CM_PB_GETREPEATEDFIELDCOUNT", PbGetRepeatedFieldCount);
     ScriptEngine::RegisterNativeHandler("CM_PB_SETINT", PbSetInt);
     ScriptEngine::RegisterNativeHandler("CM_PB_SETINT64", PbSetInt64);

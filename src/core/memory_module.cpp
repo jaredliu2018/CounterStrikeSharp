@@ -771,7 +771,7 @@ void* CModule::FindVirtualTable(const std::string& name, int32_t offset)
 #endif
 
 #ifndef _WIN32
-void* CModule::FindVirtualTable(const std::string& name ,int32_t offset)
+void* CModule::FindVirtualTable(const std::string& name, int32_t offset)
 {
     auto readOnlyData = GetSection(".rodata");
     auto readOnlyRelocations = GetSection(".data.rel.ro");

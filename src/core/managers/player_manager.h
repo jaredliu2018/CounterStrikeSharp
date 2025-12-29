@@ -135,7 +135,7 @@ class CPlayer
     uint64 m_buttonState = ~0;
     void SetName(const char* name);
     void SetNameOverride(const char* name);
-    void SetAvatar(uint64 steamid,void* buffer, int size);
+    void SetAvatar(uint64 steamid, void* buffer, int size);
     INetChannelInfo* GetNetInfo() const;
 };
 

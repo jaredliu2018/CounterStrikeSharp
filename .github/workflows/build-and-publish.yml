@@ -11,11 +11,11 @@ on:
   push:
     paths-ignore:
       - "docfx/**"
-    branches: ["main"]
+    branches: ["b5"]
     tags:
       - "v*"
   pull_request:
-    branches: ["main"]
+    branches: ["b5"]
 
 jobs:
   setup:

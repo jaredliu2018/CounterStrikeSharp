@@ -139,9 +139,6 @@ CON_COMMAND(css_dump_schema, "dump schema symbols")
 
     for (const auto& pClassInfo : classes)
     {
-        short fieldsSize = pClassInfo->m_nFieldCount;
-        SchemaClassFieldData_t* pFields = pClassInfo->m_pFields;
-
         j["classes"][pClassInfo->m_pszName] = json::object();
         if (pClassInfo->m_pBaseClasses)
         {
@@ -150,14 +147,33 @@ CON_COMMAND(css_dump_schema, "dump schema symbols")
 
         j["classes"][pClassInfo->m_pszName]["fields"] = json::array();
 
-        for (int i = 0; i < fieldsSize; ++i)
+        for (auto* pFieldBlock = pClassInfo->m_pFields; pFieldBlock != nullptr; pFieldBlock = pFieldBlock->m_pNext)
         {
-            SchemaClassFieldData_t& field = pFields[i];
+            for (uint64 i = 0; i < pFieldBlock->m_nFieldCount; ++i)
+            {
+                SchemaClassFieldData_t& field = pFieldBlock->m_pFields[i];
+                if (!field.m_pszName || field.m_pszName[0] == '\0')
+                {
+                    continue;
+                }
 
-            j["classes"][pClassInfo->m_pszName]["fields"].push_back({
-                { "name", field.m_pszName },
-                { "type", WriteTypeJson(json::object(), field.m_pType) },
-            });
+                json fieldJson = {
+                    { "name", field.m_pszName },
+                    { "owner", pFieldBlock->m_pszClassName },
+                    { "encoded_offset", field.m_nEncodedOffset },
+                };
+
+                if (field.HasDirectOffset())
+                {
+                    fieldJson["offset"] = field.m_nSingleInheritanceOffset;
+                }
+                else
+                {
+                    fieldJson["offset"] = nullptr;
+                }
+
+                j["classes"][pClassInfo->m_pszName]["fields"].push_back(std::move(fieldJson));
+            }
         }
     }
 

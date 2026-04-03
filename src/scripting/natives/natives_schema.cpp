@@ -29,10 +29,29 @@
 
 namespace counterstrikesharp {
 
+static bool ValidateSchemaLookupArgs(ScriptContext& script_context, const char* className, const char* memberName)
+{
+    if (!className || className[0] == '\0')
+    {
+        script_context.ThrowNativeError("Schema class name cannot be null or empty.");
+        return false;
+    }
+
+    if (!memberName || memberName[0] == '\0')
+    {
+        script_context.ThrowNativeError("Schema member name cannot be null or empty.");
+        return false;
+    }
+
+    return true;
+}
+
 int16 GetSchemaOffset(ScriptContext& script_context)
 {
     auto className = script_context.GetArgument<const char*>(0);
     auto memberName = script_context.GetArgument<const char*>(1);
+    if (!ValidateSchemaLookupArgs(script_context, className, memberName)) return 0;
+
     auto classKey = hash_32_fnv1a_const(className);
     auto memberKey = hash_32_fnv1a_const(memberName);
 
@@ -45,6 +64,8 @@ bool IsSchemaFieldNetworked(ScriptContext& script_context)
 {
     auto className = script_context.GetArgument<const char*>(0);
     auto memberName = script_context.GetArgument<const char*>(1);
+    if (!ValidateSchemaLookupArgs(script_context, className, memberName)) return false;
+
     auto classKey = hash_32_fnv1a_const(className);
     auto memberKey = hash_32_fnv1a_const(memberName);
 
@@ -71,6 +92,8 @@ void GetSchemaValueByName(ScriptContext& script_context)
     auto returnType = script_context.GetArgument<DataType_t>(1);
     auto className = script_context.GetArgument<const char*>(2);
     auto memberName = script_context.GetArgument<const char*>(3);
+    if (!ValidateSchemaLookupArgs(script_context, className, memberName)) return;
+
     auto classKey = hash_32_fnv1a_const(className);
     auto memberKey = hash_32_fnv1a_const(memberName);
 
@@ -135,6 +158,7 @@ void SetSchemaValueByName(ScriptContext& script_context)
     auto dataType = script_context.GetArgument<DataType_t>(1);
     auto className = script_context.GetArgument<const char*>(2);
     auto memberName = script_context.GetArgument<const char*>(3);
+    if (!ValidateSchemaLookupArgs(script_context, className, memberName)) return;
 
     if (globals::coreConfig->FollowCS2ServerGuidelines &&
         std::find(schema::CS2BadList.begin(), schema::CS2BadList.end(), memberName) != schema::CS2BadList.end())

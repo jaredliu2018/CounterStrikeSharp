@@ -50,6 +50,10 @@ public partial class CBaseEntity : CEntityInstance
 	[SchemaMember("CBaseEntity", "m_lastNetworkChange")]
 	public ref float LastNetworkChange => ref Schema.GetRef<float>(this.Handle, "CBaseEntity", "m_lastNetworkChange");
 
+	// m_think
+	[SchemaMember("CBaseEntity", "m_think")]
+	public BASEPTR Think => Schema.GetDeclaredClass<BASEPTR>(this.Handle, "CBaseEntity", "m_think");
+
 	// m_ResponseContexts
 	[SchemaMember("CBaseEntity", "m_ResponseContexts")]
 	public NetworkedVector<ResponseContext_t> ResponseContexts => Schema.GetDeclaredClass<NetworkedVector<ResponseContext_t>>(this.Handle, "CBaseEntity", "m_ResponseContexts");
@@ -61,6 +65,22 @@ public partial class CBaseEntity : CEntityInstance
 		get { return Schema.GetUtf8String(this.Handle, "CBaseEntity", "m_iszResponseContext"); }
 		set { Schema.SetString(this.Handle, "CBaseEntity", "m_iszResponseContext", value); }
 	}
+
+	// m_pfnTouch
+	[SchemaMember("CBaseEntity", "m_pfnTouch")]
+	public ENTITYFUNCPTR PfnTouch => Schema.GetDeclaredClass<ENTITYFUNCPTR>(this.Handle, "CBaseEntity", "m_pfnTouch");
+
+	// m_pfnUse
+	[SchemaMember("CBaseEntity", "m_pfnUse")]
+	public USEPTR PfnUse => Schema.GetDeclaredClass<USEPTR>(this.Handle, "CBaseEntity", "m_pfnUse");
+
+	// m_pfnBlocked
+	[SchemaMember("CBaseEntity", "m_pfnBlocked")]
+	public ENTITYFUNCPTR PfnBlocked => Schema.GetDeclaredClass<ENTITYFUNCPTR>(this.Handle, "CBaseEntity", "m_pfnBlocked");
+
+	// m_pfnMoveDone
+	[SchemaMember("CBaseEntity", "m_pfnMoveDone")]
+	public BASEPTR PfnMoveDone => Schema.GetDeclaredClass<BASEPTR>(this.Handle, "CBaseEntity", "m_pfnMoveDone");
 
 	// m_iHealth
 	[SchemaMember("CBaseEntity", "m_iHealth")]
@@ -97,6 +117,10 @@ public partial class CBaseEntity : CEntityInstance
 	// m_MoveType
 	[SchemaMember("CBaseEntity", "m_MoveType")]
 	public ref MoveType_t MoveType => ref Schema.GetRef<MoveType_t>(this.Handle, "CBaseEntity", "m_MoveType");
+
+	// m_nPreviouslySetMoveType
+	[SchemaMember("CBaseEntity", "m_nPreviouslySetMoveType")]
+	public ref MoveType_t PreviouslySetMoveType => ref Schema.GetRef<MoveType_t>(this.Handle, "CBaseEntity", "m_nPreviouslySetMoveType");
 
 	// m_nActualMoveType
 	[SchemaMember("CBaseEntity", "m_nActualMoveType")]

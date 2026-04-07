@@ -14,7 +14,7 @@ public static class NetworkClasses
         "CBaseCSGrenadeProjectile",
         "CBaseDoor",
         "CBaseEntity",
-        "CBaseFlex",
+        //"CBaseFlex",
         "CBaseGrenade",
         "CBaseModelEntity",
         "CBasePlayerController",

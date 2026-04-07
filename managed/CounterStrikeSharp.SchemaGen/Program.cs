@@ -259,6 +259,11 @@ internal static partial class Program
         // Types used as pointers
         var pointeeTypes = new HashSet<string>();
 
+        foreach (var className in allClasses.Keys)
+        {
+            graph.AddVertex(className);
+        }
+
         foreach (var (className, schemaClass) in allClasses)
         {
             if (schemaClass.Parent != null)
@@ -310,10 +315,23 @@ internal static partial class Program
         var visited = new HashSet<string>();
         var search = new BreadthFirstSearchAlgorithm<string, Edge<string>>(graph);
         search.FinishVertex += node => { visited.Add(node); };
+        var missingNetworkClasses = new List<string>();
 
         foreach (var networkClassName in NetworkClasses.Names)
         {
+            if (!graph.ContainsVertex(networkClassName))
+            {
+                missingNetworkClasses.Add(networkClassName);
+                continue;
+            }
+
             search.Compute(networkClassName);
+        }
+
+        if (missingNetworkClasses.Count > 0)
+        {
+            Console.WriteLine(
+                $"Skipping missing network classes from schema: {string.Join(", ", missingNetworkClasses.OrderBy(x => x))}");
         }
 
         // Clear output directory
@@ -524,6 +542,12 @@ internal static partial class Program
                 var getter = $"ref Schema.GetRef<{SanitiseTypeName(field.Type.CsTypeName)}>({handleParams});";
                 builder.AppendLine(
                     $"\tpublic {(requiresNewKeyword ? "new " : "")}ref {SanitiseTypeName(field.Type.CsTypeName)} {schemaClass.CsPropertyNameForField(schemaClassName, field)} => {getter}");
+                builder.AppendLine();
+            }
+            else if (field.Type is { Category: SchemaTypeCategory.Ptr, Inner: { Category: SchemaTypeCategory.Builtin, Name: "void" } })
+            {
+                builder.AppendLine(
+                    $"\tpublic {(requiresNewKeyword ? "new " : "")}IntPtr {schemaClass.CsPropertyNameForField(schemaClassName, field)} => Schema.GetSchemaValue<IntPtr>({handleParams});");
                 builder.AppendLine();
             }
             else if (field.Type.Category == SchemaTypeCategory.Ptr)

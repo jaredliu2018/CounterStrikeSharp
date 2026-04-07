@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- https://learn.microsoft.com/en-us/dotnet/fundamentals/package-validation/diagnostic-ids -->
-<Suppressions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Suppressions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Suppression>
     <DiagnosticId>CP0001</DiagnosticId>
     <Target>T:CounterStrikeSharp.API.Core.ActionType_t</Target>
@@ -15,13 +15,37 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0001</DiagnosticId>
+    <Target>T:CounterStrikeSharp.API.Core.BaseExplosionTypes_t</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0001</DiagnosticId>
     <Target>T:CounterStrikeSharp.API.Core.CAISound</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0001</DiagnosticId>
+    <Target>T:CounterStrikeSharp.API.Core.CAnimGraphNetworkedVariables</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0001</DiagnosticId>
     <Target>T:CounterStrikeSharp.API.Core.CBaseFire</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0001</DiagnosticId>
+    <Target>T:CounterStrikeSharp.API.Core.CBaseFlex</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0001</DiagnosticId>
+    <Target>T:CounterStrikeSharp.API.Core.CBaseFlexAlias_funCBaseFlex</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -48,12 +72,6 @@
     <Target>T:CounterStrikeSharp.API.Core.CBubbling</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CBubbling</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0001</DiagnosticId>
@@ -90,24 +108,6 @@
     <Target>T:CounterStrikeSharp.API.Core.CCSPlayer_ViewModelServices</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CCSGOViewModel</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CCSObserver_ViewModelServices</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CCSPlayer_ViewModelServices</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0001</DiagnosticId>
@@ -201,6 +201,24 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0001</DiagnosticId>
+    <Target>T:CounterStrikeSharp.API.Core.CNavLinkAnimgraphVar</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0001</DiagnosticId>
+    <Target>T:CounterStrikeSharp.API.Core.CNavLinkAreaEntity</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0001</DiagnosticId>
+    <Target>T:CounterStrikeSharp.API.Core.CNavLinkMovementVData</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0001</DiagnosticId>
     <Target>T:CounterStrikeSharp.API.Core.CommandEntitySpecType_t</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -240,24 +258,6 @@
     <Target>T:CounterStrikeSharp.API.Core.CSensorGrenade</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CPredictedViewModel</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CProjectedDecal</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CSensorGrenade</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0001</DiagnosticId>
@@ -318,54 +318,6 @@
     <Target>T:CounterStrikeSharp.API.Core.CTripWireFireProjectile</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CSoundEnt</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CSun</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CSWeaponState_t</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CTablet</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CTriggerHurtGhost</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CTriggerTripWire</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CTripWireFire</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.CTripWireFireProjectile</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0001</DiagnosticId>
@@ -453,18 +405,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.FilterTeam</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.MovementGait_t</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
     <Target>T:CounterStrikeSharp.API.Core.NPCLookType_t</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -525,6 +465,12 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0001</DiagnosticId>
+    <Target>T:CounterStrikeSharp.API.Core.VMixProcessorType_t</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0001</DiagnosticId>
     <Target>T:CounterStrikeSharp.API.Modules.Memory.VirtualFunctionVoid</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -534,48 +480,6 @@
     <Target>T:CounterStrikeSharp.API.Modules.Memory.VirtualFunctionWithReturn`1</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.SosActionSortType_t</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.SoundFlags_t</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.SpawnDebugOverrideState_t</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.SpawnDebugRestrictionOverrideState_t</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Core.SpawnPointCoopEnemy</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Modules.Memory.VirtualFunctionVoid</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0001</DiagnosticId>
-    <Target>T:CounterStrikeSharp.API.Modules.Memory.VirtualFunctionWithReturn`1</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -741,6 +645,12 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.DamageTypes_t.DMG_PHYSGUN</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.DebugOverlayBits_t.OVERLAY_WC_CHANGE_ENTITY</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -772,6 +682,24 @@
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.GameAnimEventIndex_t.AE_PULSE_GRAPH_AIMAT</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.GameAnimEventIndex_t.AE_PULSE_GRAPH_IKLOCKLEFTARM</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.GameAnimEventIndex_t.AE_PULSE_GRAPH_IKLOCKRIGHTARM</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.GameAnimEventIndex_t.AE_PULSE_GRAPH_LOOKAT</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -825,6 +753,12 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.ObjectTypeFlags_t.OBJECT_TYPE_NO_SUN_SHADOWS</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.ObserverMode_t.OBS_MODE_DIRECTED</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -838,6 +772,48 @@
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.PerformanceMode_t.PM_REDUCED_GIBS</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.PlayerConnectedState.PlayerConnected</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.PlayerConnectedState.PlayerConnecting</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.PlayerConnectedState.PlayerDisconnected</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.PlayerConnectedState.PlayerDisconnecting</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.PlayerConnectedState.PlayerNeverConnected</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.PlayerConnectedState.PlayerReconnecting</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.PlayerConnectedState.PlayerReserved</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -897,6 +873,72 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderFx_t.kRenderFxGlowShell</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderFx_t.kRenderFxNoDissipation</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderDevVisualizer</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderEnvironmental</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderGlow</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderTransAdd</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderTransAddFrameBlend</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderTransAlphaAdd</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderTransColor</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderTransTexture</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderWorldGlow</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.ScriptedMoveTo_t.CINE_MOVETO_CUSTOM</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -934,12 +976,6 @@
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.ShatterGlassStressType.SHATTERDRYWALL_CHUNKS</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_STEAMAUDIO_REVERB</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -1011,6 +1047,12 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CAI_Expresser.get_Outer</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CAI_ExpresserWithFollowup.get_PostponedFollowup</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -1018,6 +1060,90 @@
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CBaseAnimGraph.get_ClientRagdoll</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseAnimGraph.get_LastSlopeCheckPos</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseAnimGraph.get_MaxSlopeDistance</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseAnimGraphController.get_AnimGraphNetworkedVars</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseAnimGraphController.get_PrevAnimUpdateTime</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseClientUIEntity.get_CustomOutput0</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseClientUIEntity.get_CustomOutput1</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseClientUIEntity.get_CustomOutput2</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseClientUIEntity.get_CustomOutput3</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseClientUIEntity.get_CustomOutput4</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseClientUIEntity.get_CustomOutput5</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseClientUIEntity.get_CustomOutput6</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseClientUIEntity.get_CustomOutput7</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseClientUIEntity.get_CustomOutput8</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseClientUIEntity.get_CustomOutput9</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -1041,15 +1167,15 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CBaseCSGrenade.get_ThrowStrengthApproach</Target>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseCombatCharacter.get_LastHitGroup</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CBaseCSGrenade.get_ThrowStrengthApproach</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -1083,13 +1209,19 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CBaseEntity.get_OverriddenFriction</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseModelEntity.get_AddDecal</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CBaseFlex.get_NextSceneEventId</Target>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseModelEntity.get_ConfigEntitiesToPropagateMaterialDecalsTo</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseModelEntity.get_DecalForwardAxis</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -1102,6 +1234,36 @@
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CBaseModelEntity.get_DecalHealHeightRate</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseModelEntity.get_DecalPosition</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseMoveBehavior.get_CurrentKeyFrame</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseMoveBehavior.get_PostKeyFrame</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseMoveBehavior.get_PreKeyFrame</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CBaseMoveBehavior.get_TargetKeyFrame</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -1131,12 +1293,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CBasePlayerPawn.get_HighestGeneratedServerViewAngleChangeIndex</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CBasePlayerWeaponVData.get_MuzzleAttachment</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -1158,12 +1314,6 @@
     <Target>M:CounterStrikeSharp.API.Core.CBaseTrigger.get_ClientSidePredicted</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CBaseTrigger.get_ClientSidePredicted</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -1263,12 +1413,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CBreakableProp.get_FlareEnt</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CBreakableProp.get_Interactions</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -1278,12 +1422,6 @@
     <Target>M:CounterStrikeSharp.API.Core.CBreakableProp.get_NoGhostCollision</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CBreakableProp.get_NoGhostCollision</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -1419,6 +1557,18 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_CTSpawnPoints</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_CTSpawnPointsMasterList</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_DontIncrementCoopWave</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -1434,126 +1584,6 @@
     <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_FeaturedGiftersGifts</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CChicken.get_EggsPooped</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CChicken.get_InhibitDoorTimer</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CChicken.get_InhibitObstacleAvoidanceTimer</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CChicken.get_IsWaitingForLeader</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CChicken.get_LastEggPoopPosition</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CChicken.get_OriginalOwnerXuidHigh</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CChicken.get_OriginalOwnerXuidLow</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CColorCorrectionVolume.get_Enabled</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CColorCorrectionVolume.get_StartDisabled</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSBot.get_LastCoopSpawnPoint</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSGameModeRules_Deathmatch.get_DMBonusWeaponLoadoutSlot</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_CoopBonusCoinsFound</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_CoopBonusPistolsOnly</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_CoopMissionDeadPlayerRespawnEnabled</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_CoopMissionManager</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_CoopPlayersInDeploymentZone</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_CoopRespawnAndHealTime</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_DontIncrementCoopWave</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_FeaturedGiftersAccounts</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_FeaturedGiftersGifts</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -1647,12 +1677,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_ServerPaused</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_ServerQuestID</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -1671,7 +1695,49 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_TerroristSpawnPoints</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSGameRules.get_TerroristSpawnPointsMasterList</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_ItemServices.get_HasHeavyArmor</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_MovementServices.get_DuckJumpTimeMsecs</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_MovementServices.get_DuckOffset</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_MovementServices.get_DuckTimeMsecs</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_MovementServices.get_JumpPressedTime</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_MovementServices.get_JumpTimeMsecs</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -1695,6 +1761,24 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_MovementServices.get_OffsetTickCompleteTime</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_MovementServices.get_OffsetTickStashedSpeed</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_MovementServices.get_OldJumpPressed</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_MovementServices.get_StuckCheckTime</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -1704,18 +1788,6 @@
     <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_PingServices.get_PlayerPing</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_MovementServices.get_StuckCheckTime</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_PingServices.get_PlayerPing</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -1732,18 +1804,6 @@
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CCSPlayer_WeaponServices.get_OldShootPositionHistoryCount</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerController_ActionTrackingServices.get_TotalRoundDamageDealt</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerController_InGameMoneyServices.get_AccountMoneyEarnedForNextRound</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -1767,21 +1827,21 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawn.get_Landseconds</Target>
+    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerController_ActionTrackingServices.get_TotalRoundDamageDealt</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerController.set_ClanName(System.String)</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
+    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerController_InGameMoneyServices.get_AccountMoneyEarnedForNextRound</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawn.get_Landseconds</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -1792,6 +1852,12 @@
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawn.get_PreviousModel</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawn.get_SkipOneHeadConstraintUpdate</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -1872,18 +1938,6 @@
     <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawnBase.get_CommittingSuicideOnTeamChange</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawnBase.get_ChickenJumpSoundTimer</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawnBase.get_CommittingSuicideOnTeamChange</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -2004,12 +2058,6 @@
     <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawnBase.get_GunGameImmunity</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawnBase.get_GunGameImmunity</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -2319,12 +2367,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawnBase.get_MolotovDamageTime</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawnBase.get_MoveState</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -2541,12 +2583,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawnBase.get_ViewModelServices</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawnBase.get_WaitForNoAttack</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -2562,12 +2598,6 @@
     <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawnBase.get_WasNotKilledNaturally</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSPlayerPawnBase.get_WasNotKilledNaturally</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -2616,60 +2646,6 @@
     <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_FireSequenceStartTimeChange</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_FiredOutOfAmmoEvent</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_FireSequenceStartTime</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_FireSequenceStartTimeAck</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_FireSequenceStartTimeChange</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_CurrentThirdPersonSequence</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_FiredOutOfAmmoEvent</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_FireSequenceStartTime</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_FireSequenceStartTimeAck</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_FireSequenceStartTimeChange</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -2853,144 +2829,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_PlayerFireEvent</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_PlayerFireEventAttackType</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_ReloadsWithClips</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_ReloadVisuallyComplete</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_ScopeZoomEndTime</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_SeqFirePrimary</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_SeqFireSecondary</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_SeqIdle</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_SilencerBoneIndex</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_State</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_TimeWeaponIdle</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBase.get_ViewModelIndex</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBaseVData.get_AnimExtension</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBaseVData.get_BotAudibleRange</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBaseVData.get_HeatPerShot</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBaseVData.get_IdleInterval</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBaseVData.get_IronSightEyePos</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBaseVData.get_PivotAngle</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBaseVData.get_TimeToIdleAfterFire</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBaseVData.get_WrongTeamMsg</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBaseVData.set_AnimExtension(System.String)</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CCSWeaponBaseVData.set_WrongTeamMsg(System.String)</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Release\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CDamageRecord.get_PlayerDamager</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CDamageRecord.get_PlayerRecipient</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -3003,6 +2841,12 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CEntityIdentity.get_NameStringableIndex</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CEntityInstance.get_VisibleinPVS</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -3012,18 +2856,6 @@
     <Target>M:CounterStrikeSharp.API.Core.CEnvCombinedLightProbeVolume.get_BoxMaxs</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CEntityInstance.get_VisibleinPVS</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CEnvCombinedLightProbeVolume.get_BoxMaxs</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -3303,15 +3135,9 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CEnvExplosion.get_SpriteScale</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CEnvExplosion.set_ExplosionType(System.String)</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
+    <Target>M:CounterStrikeSharp.API.Core.CEnvLaser.get_Sprite</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -3567,6 +3393,36 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CFuncTrackChange.get_TrackBottom</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CFuncTrackChange.get_TrackTop</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CFuncTrackChange.get_Train</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CGameChoreoServices.get_Owner</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CGameSceneNode.get_ZOffset</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.ChangeAccessorFieldPathIndex_t.get_Value</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -3597,13 +3453,13 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CLogicRelay.get_OnSpawn</Target>
+    <Target>M:CounterStrikeSharp.API.Core.CLightComponent.get_IndirectLight</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CLogicRelay.get_OnTrigger</Target>
+    <Target>M:CounterStrikeSharp.API.Core.CLogicEventListener.get_OnEventFired</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -3612,24 +3468,6 @@
     <Target>M:CounterStrikeSharp.API.Core.CMarkupVolume.get_Enabled</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CLogicRelay.get_OnSpawn</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CLogicRelay.get_OnTrigger</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CMarkupVolume.get_Enabled</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -3639,31 +3477,49 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CNavLinkAnimgraphVar.get_StrAnimgraphVar</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CNavLinkAnimgraphVar.set_StrAnimgraphVar(System.String)</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CNavLinkAreaEntity.get_NavLinkIdForward</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CNavLinkAreaEntity.get_NavLinkIdReverse</Target>
+    <Target>M:CounterStrikeSharp.API.Core.CMolotovProjectile.get_HasBouncedOffPlayer</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CNavSpaceInfo.get_CreateFlightSpace</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.ConstraintSoundInfo.get_ReversalSounds</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CPathKeyFrame.get_PNextKey</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CPathKeyFrame.get_PrevKey</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CPathTrack.get_Paltpath</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CPathTrack.get_Pnext</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CPathTrack.get_Pprevious</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -3693,18 +3549,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CPhysBox.get_PreferredCarryAngles</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CPhysConstraint.get_TeleportTick</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CPhysicsProp.get_CollisionGroupOverride</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -3718,6 +3562,12 @@
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CPhysicsProp.get_InertiaScale</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CPhysLength.get_EnableCollision</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -3741,69 +3591,45 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CPlayer_MovementServices_Humanoid.get_TargetVolume</Target>
+    <Target>M:CounterStrikeSharp.API.Core.CPlayer_MovementServices_Humanoid.get_CrouchState</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CPointTemplate.get_OutputOnSpawned</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
+    <Target>M:CounterStrikeSharp.API.Core.CPlayer_MovementServices_Humanoid.get_CrouchTransitionStartTime</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CPostProcessingVolume.get_Rate</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
+    <Target>M:CounterStrikeSharp.API.Core.CPlayer_MovementServices_Humanoid.get_Ducked</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CPostProcessingVolume.get_TonemapMinAvgLum</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
+    <Target>M:CounterStrikeSharp.API.Core.CPlayer_MovementServices_Humanoid.get_Ducking</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CPostProcessingVolume.get_TonemapPercentBrightPixels</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
+    <Target>M:CounterStrikeSharp.API.Core.CPlayer_MovementServices_Humanoid.get_InCrouch</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CPostProcessingVolume.get_TonemapPercentTarget</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
+    <Target>M:CounterStrikeSharp.API.Core.CPlayer_MovementServices_Humanoid.get_InDuckJump</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CRagdollProp.get_BloodColor</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CRagdollProp.get_RagdollSource</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CRagdollProp.get_ShouldTeleportPhysics</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CRagdollProp.get_ValidatePoweredRagdollPose</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CScriptedSequence.get_LastFoundEntity</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
+    <Target>M:CounterStrikeSharp.API.Core.CPlayer_MovementServices_Humanoid.get_TargetVolume</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
@@ -3867,7 +3693,61 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CSceneEntity.get_Actor</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CSceneEntity.get_ActorList</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CSceneEntity.get_OnTrigger</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CSceneEntity.get_ResumeSceneFile</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CSceneEntity.get_SceneFlushCounter</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CSceneEntity.get_WaitingForResumeScene</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CSceneEntity.get_WaitingForThisResumeScene</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CSceneEntity.set_ResumeSceneFile(System.String)</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CScriptedSequence.get_LastFoundEntity</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CSkeletonInstance.get_IsAnimationEnabled</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -3892,6 +3772,12 @@
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.CTakeDamageInfo.get_BitsDamageType</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.CTestEffect.get_PBeam</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -3987,42 +3873,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CTriggerHurt.get_BitsDamageInflict</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.CWeaponBaseItem.get_SequenceCompleteTimer</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.EventPlayerConnect.get_Address</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.EventPlayerConnect.set_Address(System.String)</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.fogparams_t.get_NoReflectionFog</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Core.NativeAPI.ExecuteVirtualFunction``1(System.IntPtr,System.Object[])</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Core.PhysicsRagdollPose_t.get___m_pChainEntity</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -4041,6 +3891,18 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.SimpleConstraintSoundProfile.get_KeyPoints</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
+    <Target>M:CounterStrikeSharp.API.Core.SimpleConstraintSoundProfile.get_ReversalSoundThresholds</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0002</DiagnosticId>
     <Target>M:CounterStrikeSharp.API.Modules.Cvars.ConVar.#ctor(System.IntPtr)</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -4068,36 +3930,6 @@
     <Target>M:CounterStrikeSharp.API.Modules.Menu.BaseMenu.Open(CounterStrikeSharp.API.Core.CCSPlayerController)</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Modules.Cvars.ConVar.#ctor(System.IntPtr)</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Modules.Cvars.ConVar.get_Handle</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Modules.Memory.DynamicFunctions.BaseMemoryFunction.InvokeInternal``1(System.Object[])</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0002</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Modules.Memory.DynamicFunctions.BaseMemoryFunction.InvokeInternalVoid(System.Object[])</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0005</DiagnosticId>
-    <Target>M:CounterStrikeSharp.API.Modules.Menu.BaseMenu.Open(CounterStrikeSharp.API.Core.CCSPlayerController)</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0006</DiagnosticId>
@@ -4114,6 +3946,24 @@
   <Suppression>
     <DiagnosticId>CP0006</DiagnosticId>
     <Target>P:CounterStrikeSharp.API.Core.Hosting.IScriptHostConfiguration.LanguagePath</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0007</DiagnosticId>
+    <Target>T:CounterStrikeSharp.API.Core.CBaseCombatCharacter</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0007</DiagnosticId>
+    <Target>T:CounterStrikeSharp.API.Core.CBaseGrenade</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0007</DiagnosticId>
+    <Target>T:CounterStrikeSharp.API.Core.CEconEntity</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -4233,7 +4083,19 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.DamageTypes_t.DMG_BLAST_SURFACE</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0011</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.DamageTypes_t.DMG_BUCKSHOT</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0011</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.DamageTypes_t.DMG_DISSOLVE</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -4336,24 +4198,6 @@
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.GameAnimEventIndex_t.AE_PULSE_GRAPH</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.GameAnimEventIndex_t.AE_PULSE_GRAPH_IKLOCKLEFTARM</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.GameAnimEventIndex_t.AE_PULSE_GRAPH_IKLOCKRIGHTARM</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.GameAnimEventIndex_t.AE_PULSE_GRAPH_LOOKAT</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>
@@ -4647,24 +4491,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.DIV</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.DIV_FLOAT</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.EQ</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.EQ_BOOL</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -4701,12 +4527,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.GET_CONST</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.GET_CONST_INLINE_STORAGE</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -4722,12 +4542,6 @@
     <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.LT</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.LT</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
@@ -4749,12 +4563,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.LTE</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.LTE_FLOAT</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -4770,12 +4578,6 @@
     <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.MOD</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.MOD</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
@@ -4797,12 +4599,6 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.MUL</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.MUL_FLOAT</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -4818,12 +4614,6 @@
     <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.NE</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.NE</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
@@ -4860,12 +4650,6 @@
     <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.NEGATE</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.NEGATE</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
@@ -4914,24 +4698,6 @@
     <Target>F:CounterStrikeSharp.API.Core.PulseValueType_t.PVAL_COLOR_RGB</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.SUB_FLOAT</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseInstructionCode_t.SUB_INT</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.PulseValueType_t.PVAL_COLOR_RGB</Target>
-    <Left>./ApiCompat/v202.dll</Left>
-    <Right>obj/Debug/net8.0/CounterStrikeSharp.API.dll</Right>
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
@@ -4995,6 +4761,48 @@
   </Suppression>
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderFx_t.kRenderFxFadeIn</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0011</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderFx_t.kRenderFxFadeOut</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0011</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderFx_t.kRenderFxMax</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0011</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderFx_t.kRenderFxPulseFastWider</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0011</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderModeCount</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0011</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderNone</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0011</DiagnosticId>
+    <Target>F:CounterStrikeSharp.API.Core.RenderMode_t.kRenderTransAlpha</Target>
+    <Left>.\ApiCompat\v202.dll</Left>
+    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>CP0011</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.RenderPrimitiveType_t.RENDER_PRIM_TYPE_COUNT</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
@@ -5002,120 +4810,6 @@
   <Suppression>
     <DiagnosticId>CP0011</DiagnosticId>
     <Target>F:CounterStrikeSharp.API.Core.ShatterGlassStressType.SHATTERGLASS_EXPLOSIVE</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_AUTOFILTER</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_BOXVERB</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_DELAY</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_DIFFUSOR</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_DYNAMICS</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_DYNAMICS_3BAND</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_DYNAMICS_COMPRESSOR</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_EFFECT_CHAIN</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_MOD_DELAY</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_OSC</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_PANNER</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_PRESETDSP</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_RT_PITCH</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_SHAPER</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_STEAMAUDIO_DIRECT</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_STEAMAUDIO_HRTF</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_STEREODELAY</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_SUBGRAPH_SWITCH</Target>
-    <Left>.\ApiCompat\v202.dll</Left>
-    <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
-  </Suppression>
-  <Suppression>
-    <DiagnosticId>CP0011</DiagnosticId>
-    <Target>F:CounterStrikeSharp.API.Core.VMixProcessorType_t.VPROCESSOR_UTILITY</Target>
     <Left>.\ApiCompat\v202.dll</Left>
     <Right>obj\Debug\net8.0\CounterStrikeSharp.API.dll</Right>
   </Suppression>

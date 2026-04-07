@@ -112,6 +112,8 @@ public record SchemaFieldType
         SchemaTypeCategory.Builtin => BuiltinToCsKeyword(Name),
         SchemaTypeCategory.Ptr => IsString
             ? "string"
+            : Inner is { Category: SchemaTypeCategory.Builtin, Name: "void" }
+                ? "IntPtr"
             : $"{Inner!.CsTypeName}?",
         SchemaTypeCategory.FixedArray => IsString
             ? "string"

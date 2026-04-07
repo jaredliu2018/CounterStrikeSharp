@@ -18,6 +18,10 @@ public partial class thinkfunc_t : NativeObject
 {
     public thinkfunc_t (IntPtr pointer) : base(pointer) {}
 
+	// m_think
+	[SchemaMember("thinkfunc_t", "m_think")]
+	public BASEPTR Think => Schema.GetDeclaredClass<BASEPTR>(this.Handle, "thinkfunc_t", "m_think");
+
 	// m_nContext
 	[SchemaMember("thinkfunc_t", "m_nContext")]
 	public CUtlStringToken Context => Schema.GetDeclaredClass<CUtlStringToken>(this.Handle, "thinkfunc_t", "m_nContext");

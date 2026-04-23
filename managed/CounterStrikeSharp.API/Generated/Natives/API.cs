@@ -2198,11 +2198,11 @@ namespace CounterStrikeSharp.API.Core
             {
                 ScriptContext.GlobalScriptContext.Reset();
                 ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
+                ScriptContext.GlobalScriptContext.PushString(name);
                 ScriptContext.GlobalScriptContext.SetIdentifier(0x6CDA2A81);
                 ScriptContext.GlobalScriptContext.Invoke();
                 ScriptContext.GlobalScriptContext.CheckErrors();
-                return (bool)ScriptContext.GlobalScriptContext.GetResult(typeof(bool));
+                return ScriptContext.GlobalScriptContext.GetResultPrimitive<bool>();
             }
         }
 
@@ -2212,12 +2212,12 @@ namespace CounterStrikeSharp.API.Core
             {
                 ScriptContext.GlobalScriptContext.Reset();
                 ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(index);
+                ScriptContext.GlobalScriptContext.PushString(name);
+                ScriptContext.GlobalScriptContext.PushPrimitive(index);
                 ScriptContext.GlobalScriptContext.SetIdentifier(0x990C3698);
                 ScriptContext.GlobalScriptContext.Invoke();
                 ScriptContext.GlobalScriptContext.CheckErrors();
-                return (int)ScriptContext.GlobalScriptContext.GetResult(typeof(int));
+                return ScriptContext.GlobalScriptContext.GetResultPrimitive<int>();
             }
         }
 
@@ -2225,14 +2225,14 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0xCF43F5A);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (long)ScriptContext.GlobalScriptContext.GetResult(typeof(long));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0xCF43F5A);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultPrimitive<long>();
             }
         }
 
@@ -2240,14 +2240,14 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0xD69053B);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (float)ScriptContext.GlobalScriptContext.GetResult(typeof(float));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0xD69053B);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultPrimitive<float>();
             }
         }
 
@@ -2255,14 +2255,14 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0xBA948705);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (bool)ScriptContext.GlobalScriptContext.GetResult(typeof(bool));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0xBA948705);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultPrimitive<bool>();
             }
         }
 
@@ -2270,14 +2270,14 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0xD47D67DE);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (string)ScriptContext.GlobalScriptContext.GetResult(typeof(string));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0xD47D67DE);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultString();
             }
         }
 
@@ -2285,16 +2285,16 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(buffer);
-                ScriptContext.GlobalScriptContext.Push(size);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0xD2CC412);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (int)ScriptContext.GlobalScriptContext.GetResult(typeof(int));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(buffer);
+				ScriptContext.GlobalScriptContext.PushPrimitive(size);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0xD2CC412);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultPrimitive<int>();
             }
         }
 
@@ -2302,14 +2302,14 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0xC017D58E);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (int)ScriptContext.GlobalScriptContext.GetResult(typeof(int));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0xC017D58E);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultPrimitive<int>();
             }
         }
 
@@ -2317,13 +2317,13 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x44BC6C58);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (int)ScriptContext.GlobalScriptContext.GetResult(typeof(int));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x44BC6C58);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultPrimitive<int>();
             }
         }
 
@@ -2331,14 +2331,14 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(value);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x689BBAE8);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(value);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x689BBAE8);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2346,14 +2346,14 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(value);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0xFE7613AA);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(value);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0xFE7613AA);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2361,14 +2361,14 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(value);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0xFF31A68B);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(value);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0xFF31A68B);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2376,14 +2376,14 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(value);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x7C16A9F5);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(value);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x7C16A9F5);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2391,14 +2391,14 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(value);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0xBF62452E);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushString(value);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0xBF62452E);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2406,15 +2406,15 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(buffer);
-                ScriptContext.GlobalScriptContext.Push(size);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0xFEE230E2);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(buffer);
+				ScriptContext.GlobalScriptContext.PushPrimitive(size);
+				ScriptContext.GlobalScriptContext.PushPrimitive(index);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0xFEE230E2);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2422,13 +2422,13 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(value);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x80630DAB);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(value);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x80630DAB);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2436,13 +2436,13 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(value);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x255D2AE9);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(value);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x255D2AE9);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2450,13 +2450,13 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(value);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x263A9CC8);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(value);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x263A9CC8);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2464,13 +2464,13 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(value);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x8CC96496);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(value);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x8CC96496);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2478,13 +2478,13 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(value);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0xCCC3BD0D);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushString(value);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0xCCC3BD0D);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2492,13 +2492,14 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.Push(index);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x603DEB40);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.PushPrimitive(buffer);
+				ScriptContext.GlobalScriptContext.PushPrimitive(size);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x603DEB40);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
             }
         }
 
@@ -2506,12 +2507,12 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x33728C0B);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (string)ScriptContext.GlobalScriptContext.GetResult(typeof(string));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x33728C0B);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultString();
             }
         }
 
@@ -2524,7 +2525,7 @@ namespace CounterStrikeSharp.API.Core
                 ScriptContext.GlobalScriptContext.SetIdentifier(0xF2FBDAB6);
                 ScriptContext.GlobalScriptContext.Invoke();
                 ScriptContext.GlobalScriptContext.CheckErrors();
-                return (ulong)ScriptContext.GlobalScriptContext.GetResult(typeof(ulong));
+                return ScriptContext.GlobalScriptContext.GetResultPrimitive<ulong>();
             }
         }
 
@@ -2534,7 +2535,7 @@ namespace CounterStrikeSharp.API.Core
             {
                 ScriptContext.GlobalScriptContext.Reset();
                 ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.Push(recipients);
+                ScriptContext.GlobalScriptContext.PushPrimitive(recipients);
                 ScriptContext.GlobalScriptContext.SetIdentifier(0x371B3FA2);
                 ScriptContext.GlobalScriptContext.Invoke();
                 ScriptContext.GlobalScriptContext.CheckErrors();
@@ -2545,12 +2546,12 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x816C8297);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (int)ScriptContext.GlobalScriptContext.GetResult(typeof(int));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x816C8297);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultPrimitive<int>();
             }
         }
 
@@ -2558,12 +2559,12 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(name);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x3898B04C);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (IntPtr)ScriptContext.GlobalScriptContext.GetResult(typeof(IntPtr));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.PushString(name);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x3898B04C);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultPrimitive<IntPtr>();
             }
         }
 
@@ -2571,12 +2572,12 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(id);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x3AAD053A);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (IntPtr)ScriptContext.GlobalScriptContext.GetResult(typeof(IntPtr));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.PushPrimitive(id);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x3AAD053A);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultPrimitive<IntPtr>();
             }
         }
 
@@ -2613,7 +2614,7 @@ namespace CounterStrikeSharp.API.Core
                 ScriptContext.GlobalScriptContext.SetIdentifier(0x5F0CA113);
                 ScriptContext.GlobalScriptContext.Invoke();
                 ScriptContext.GlobalScriptContext.CheckErrors();
-                return (int)ScriptContext.GlobalScriptContext.GetResult(typeof(int));
+                return ScriptContext.GlobalScriptContext.GetResultPrimitive<int>();
             }
         }
 
@@ -2626,7 +2627,7 @@ namespace CounterStrikeSharp.API.Core
                 ScriptContext.GlobalScriptContext.SetIdentifier(0x54B569D9);
                 ScriptContext.GlobalScriptContext.Invoke();
                 ScriptContext.GlobalScriptContext.CheckErrors();
-                return (string)ScriptContext.GlobalScriptContext.GetResult(typeof(string));
+                return ScriptContext.GlobalScriptContext.GetResultString();
             }
         }
 
@@ -2639,7 +2640,7 @@ namespace CounterStrikeSharp.API.Core
                 ScriptContext.GlobalScriptContext.SetIdentifier(0x594E2A35);
                 ScriptContext.GlobalScriptContext.Invoke();
                 ScriptContext.GlobalScriptContext.CheckErrors();
-                return (int)ScriptContext.GlobalScriptContext.GetResult(typeof(int));
+                return ScriptContext.GlobalScriptContext.GetResultPrimitive<int>();
             }
         }
 
@@ -2647,12 +2648,12 @@ namespace CounterStrikeSharp.API.Core
         {
             lock (ScriptContext.GlobalScriptContext.Lock)
             {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.Push(message);
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x54B45E26);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return (string)ScriptContext.GlobalScriptContext.GetResult(typeof(string));
+				ScriptContext.GlobalScriptContext.Reset();
+				ScriptContext.GlobalScriptContext.Push(message);
+				ScriptContext.GlobalScriptContext.SetIdentifier(0x54B45E26);
+				ScriptContext.GlobalScriptContext.Invoke();
+				ScriptContext.GlobalScriptContext.CheckErrors();
+				return ScriptContext.GlobalScriptContext.GetResultString();
             }
         }
 

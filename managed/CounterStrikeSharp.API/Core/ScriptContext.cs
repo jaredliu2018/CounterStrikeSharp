@@ -218,12 +218,6 @@ namespace CounterStrikeSharp.API.Core
 
 				return;
 			}
-            else if (arg is byte[])
-            {
-                PushBytes(context, (byte[])arg);
-
-				return;
-			}
 			else if (arg is InputArgument ia)
 			{
 				Push(context, ia.Value);

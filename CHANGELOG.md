@@ -1,3 +1,31 @@
+## What's Changed in v1.0.367
+* fix: update CBaseEntity_TakeDamageOld linux signature by [@tk1114632](https://github.com/tk1114632) in [#1287](https://github.com/roflmuffin/CounterStrikeSharp/pull/1287) ([d935b08](https://github.com/roflmuffin/CounterStrikeSharp/commit/d935b08cfa040c9b9c238615a544e1119bf10c29))
+
+## New Contributors
+* [@tk1114632](https://github.com/tk1114632) made their first contribution in [#1287](https://github.com/roflmuffin/CounterStrikeSharp/pull/1287)
+
+## What's Changed in v1.0.366
+* fix: apply changes for AG2 update in [#1279](https://github.com/roflmuffin/CounterStrikeSharp/pull/1279) ([8a9fbe8](https://github.com/roflmuffin/CounterStrikeSharp/commit/8a9fbe8fb5e1f50124911fec823d0cf07357a71f))
+
+## What's Changed in v1.0.365
+* perf: improve ScriptContext performance in [#1264](https://github.com/roflmuffin/CounterStrikeSharp/pull/1264) ([9b6d971](https://github.com/roflmuffin/CounterStrikeSharp/commit/9b6d971a04419aafeb54ca767143769a5b71be36))
+* test: add benchmarking script in [#1252](https://github.com/roflmuffin/CounterStrikeSharp/pull/1252) ([1dbed74](https://github.com/roflmuffin/CounterStrikeSharp/commit/1dbed74afd5b73cf50a5105cad7a2a5c60dddc73))
+* chore: Update Schema Definitions to 1.41.4.1 in [#1245](https://github.com/roflmuffin/CounterStrikeSharp/pull/1245) ([4799da3](https://github.com/roflmuffin/CounterStrikeSharp/commit/4799da3eae839dcba206f8ad8f23385b9b7e9529))
+
+## What's Changed in v1.0.364
+* fix: Update Linux signatures for PostThink and TerminateRound by [@ianlucas](https://github.com/ianlucas) in [#1247](https://github.com/roflmuffin/CounterStrikeSharp/pull/1247) ([03a452c](https://github.com/roflmuffin/CounterStrikeSharp/commit/03a452ca37f310d8a7d25c0370ef6787565f5116))
+
+## What's Changed in v1.0.363
+* fix(gamedata): Update linux sig for CEntitySystem_AddEntityIOEvent by [@xLeviNx](https://github.com/xLeviNx) in [#1232](https://github.com/roflmuffin/CounterStrikeSharp/pull/1232) ([4006494](https://github.com/roflmuffin/CounterStrikeSharp/commit/4006494c1edd530c861cee93375c555f455e7155))
+* chore(deps): bump libraries/hl2sdk-cs2 from `2530f5d` to `1227cc3` by [@dependabot[bot]](https://github.com/dependabot[bot]) in [#1228](https://github.com/roflmuffin/CounterStrikeSharp/pull/1228) ([aa89325](https://github.com/roflmuffin/CounterStrikeSharp/commit/aa89325cd7a3767f3a586e762dcb344988078d06))
+* chore: Update Schema Definitions to 1.41.3.5 in [#1222](https://github.com/roflmuffin/CounterStrikeSharp/pull/1222) ([c543797](https://github.com/roflmuffin/CounterStrikeSharp/commit/c5437970f72242619d5da44b03bdfcf803187528))
+
+## What's Changed in v1.0.362
+* refactor: Fix memory leak caused by allocating `Vector`, `QAngle`, etc. class objects by [@ELDment](https://github.com/ELDment) in [#1182](https://github.com/roflmuffin/CounterStrikeSharp/pull/1182) ([f06283a](https://github.com/roflmuffin/CounterStrikeSharp/commit/f06283aebc580b52e472684341583db58f9f896d))
+* chore(schema): Update Schema Definitions to 1.41.3.3 in [#1206](https://github.com/roflmuffin/CounterStrikeSharp/pull/1206) ([60db1df](https://github.com/roflmuffin/CounterStrikeSharp/commit/60db1df2a21e22c4d29c8108d0f45f92bea9f759))
+* fix: use personal PAT for cronjob PRs ([acc5744](https://github.com/roflmuffin/CounterStrikeSharp/commit/acc57441391a629ead8a4af788f4a87bf92fba5b))
+* feat(schema): add cronjob to re-generate schema in [#1204](https://github.com/roflmuffin/CounterStrikeSharp/pull/1204) ([f0d6512](https://github.com/roflmuffin/CounterStrikeSharp/commit/f0d6512e7be4bbdec8cc0f9e38d2813540985b35))
+
 ## What's Changed in v1.0.361
 * fix: setup server next frame listeners at startup ([dc138c1](https://github.com/roflmuffin/CounterStrikeSharp/commit/dc138c16f3e63ce2fb8f364da5c1d418a3214d84))
 

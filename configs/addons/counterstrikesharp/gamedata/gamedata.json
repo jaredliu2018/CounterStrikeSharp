@@ -11,6 +11,7 @@
       "library": "server",
       "windows": "48 85 C9 0F 84 ? ? ? ? 48 89 5C 24 ? 55",
       "linux": "55 48 8D 05 ? ? ? ? 48 89 E5 41 57 4D 89 CF"
+      "linux": "55 48 8D 05 ? ? ? ? 48 89 E5 41 57 4D 89 CF"
     }
   },
   "CCSPlayerController_SwitchTeam": {
@@ -28,7 +29,7 @@
   },
   "CCSPlayerController_Respawn": {
     "offsets": {
-      "windows": 273,
+      "windows": 270,
       "linux": 272
     }
   },
@@ -42,6 +43,8 @@
   "CCSPlayerPawnBase_PostThink": {
     "signatures": {
       "library": "server",
+      "windows": "40 55 56 41 54 48 8B EC",
+      "linux": "55 48 89 E5 41 56 41 55 41 54 53 48 89 FB 48 83 EC ? E8 ? ? ? ? 80 BB"
       "windows": "40 55 56 41 54 48 8B EC",
       "linux": "55 48 89 E5 41 56 41 55 41 54 53 48 89 FB 48 83 EC ? E8 ? ? ? ? 80 BB"
     }
@@ -97,31 +100,33 @@
   },
   "CCSPlayer_ItemServices_GiveNamedItem": {
     "offsets": {
-      "windows": 20,
+      "windows": 23,
       "linux": 24
     }
   },
   "CCSPlayer_ItemServices_DropActivePlayerWeapon": {
     "offsets": {
-      "windows": 23,
+      "windows": 26,
       "linux": 27
     }
   },
   "CCSPlayer_ItemServices_RemoveWeapons": {
     "offsets": {
-      "windows": 24,
+      "windows": 27,
       "linux": 28
     }
   },
   "CGameSceneNode_GetSkeletonInstance": {
     "offsets": {
-      "windows": 9,
-      "linux": 10
+      "windows": 12,
+      "linux": 13
     }
   },
   "CCSGameRules_TerminateRound": {
     "signatures": {
       "library": "server",
+      "windows": "48 8B C4 4C 89 48 ? 48 89 48 ? 55 41 54",
+      "linux": "55 48 89 E5 41 57 41 89 F7 41 56 48 8D 35"
       "windows": "48 8B C4 4C 89 48 ? 48 89 48 ? 55 41 54",
       "linux": "55 48 89 E5 41 57 41 89 F7 41 56 48 8D 35"
     }
@@ -157,12 +162,14 @@
       "library": "server",
       "windows": "40 53 48 83 EC ? 4C 89 4C 24 ? 48 8B D9 45 8B C8",
       "linux": "55 48 89 E5 53 48 89 FB 48 83 EC ? E8 ? ? ? ? 48 89 D8 48 8B 5D ? C9 C3 CC CC CC CC CC CC 48 B8"
+      "linux": "55 48 89 E5 53 48 89 FB 48 83 EC ? E8 ? ? ? ? 48 89 D8 48 8B 5D ? C9 C3 CC CC CC CC CC CC 48 B8"
     }
   },
   "CEntityInstance_AcceptInput": {
     "signatures": {
       "library": "server",
       "windows": "89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 49 8B F0 48 8B D9 48 8B 0D",
+      "linux": "55 48 89 E5 41 56 49 89 FE 41 55 48 8D 7D"
       "linux": "55 48 89 E5 41 56 49 89 FE 41 55 48 8D 7D"
     }
   },
@@ -183,12 +190,13 @@
     "signatures": {
       "library": "server",
       "windows": "48 8B 15 ? ? ? ? 48 85 D2 74 ? 85 C9",
+      "windows": "48 8B 15 ? ? ? ? 48 85 D2 74 ? 85 C9",
       "linux": "48 8B 05 ? ? ? ? 48 85 C0 74 ? 83 FF ? 77 ? 48 63 FF 48 C1 E7 ? 48 8D 44 38"
     }
   },
   "CBasePlayerPawn_CommitSuicide": {
     "offsets": {
-      "windows": 390,
+      "windows": 384,
       "linux": 384
     }
   },
@@ -209,13 +217,14 @@
     "signatures": {
       "library": "server",
       "windows": "40 55 53 56 57 41 54 48 8D 6C 24 ? 48 81 EC ? ? ? ? 4D 8B E0",
-      "linux": "55 66 0F EF C0 48 89 E5 41 57 41 56 41 55 49 89 FD 31 FF"
+      "linux": "55 66 0F EF C0 66 0F EF C0 48 89 E5 41 57 41 56 41 55 49 89 FD 31 FF"
     }
   },
   "CBaseTrigger_StartTouch": {
     "signatures": {
       "library": "server",
       "windows": "40 57 41 56 48 83 EC ? 48 8B 01",
+      "linux": "55 48 89 E5 41 56 41 55 49 89 F5 41 54 53 48 89 FB 48 83 EC ? 48 8B 07 FF 90 ? ? ? ? 84 C0"
       "linux": "55 48 89 E5 41 56 41 55 49 89 F5 41 54 53 48 89 FB 48 83 EC ? 48 8B 07 FF 90 ? ? ? ? 84 C0"
     }
   },
@@ -263,6 +272,7 @@
       "library": "server",
       "windows": "48 8B C4 4C 89 48 ? 48 89 50 ? 48 89 48 ? 55 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 48 89 58 ? 48 89 70",
       "linux": "55 48 89 E5 41 57 49 89 FF 41 56 48 8D 3D ? ? ? ? 41 55 4C 63 EA"
+      "linux": "55 48 89 E5 41 57 49 89 FF 41 56 48 8D 3D ? ? ? ? 41 55 4C 63 EA"
     }
   },
   "CheckTransmitPlayerSlot": {
@@ -294,6 +304,7 @@
     "signatures": {
       "library": "server",
       "windows": "44 89 4C 24 ? 44 88 44 24",
+      "linux": "55 48 89 E5 41 57 49 89 F7 41 56 41 55 41 89 D5"
       "linux": "55 48 89 E5 41 57 49 89 F7 41 56 41 55 41 89 D5"
     }
   },

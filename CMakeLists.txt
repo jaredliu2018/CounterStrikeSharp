@@ -84,6 +84,8 @@ set(SOURCE_FILES
     src/core/cs2_sdk/interfaces/cgameresourceserviceserver.h
     src/core/cs2_sdk/interfaces/cs2_interfaces.h
     src/core/cs2_sdk/interfaces/cs2_interfaces.cpp
+    src/core/cs2_sdk/interfaces/navphysicsinterface.h
+    src/core/cs2_sdk/interfaces/navphysicsinterface.cpp
     src/core/cs2_sdk/schema.h
     src/core/cs2_sdk/schema.cpp
     src/core/function.cpp
@@ -109,6 +111,7 @@ set(SOURCE_FILES
     src/core/managers/voice_manager.h
     src/core/managers/usermessage_manager.cpp
     src/core/managers/usermessage_manager.h
+    src/scripting/natives/natives_raytrace.cpp
     src/core/managers/clientmessage_manager.cpp
     src/core/managers/clientmessage_manager.h
     src/scripting/natives/natives_dynamichooks.cpp
@@ -119,6 +122,9 @@ set(SOURCE_FILES
     src/core/ClientMessage.h
     src/core/ClientMessage.cpp
     src/core/recipientfilters.h
+    src/core/customhudlayout.cpp
+    src/core/customhudlayout.h
+    src/scripting/natives/natives_customhud.cpp
 )
 
 add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${NATIVES_SOURCES} ${CONVERSIONS_SOURCES} ${CONVERSIONS_HEADERS})

@@ -2,8 +2,6 @@
 
 #include <tier1/convar.h>
 
-#include <sourcehook/sourcehook.h>
-
 #include <memory>
 #include <thread>
 
@@ -12,12 +10,10 @@
 #include "iserver.h"
 
 class IGameEventManager2;
-class IPlayerInfoManager;
 class IBotManager;
 class IServerPluginHelpers;
 class IUniformRandomStream;
 class IEngineTrace;
-class IEngineSound;
 class IEngineServiceMgr;
 class INetworkStringTableContainer;
 class CGlobalVars;
@@ -64,12 +60,10 @@ namespace globals {
 extern IVEngineServer* engine;
 extern IVEngineServer2* engineServer2;
 extern IGameEventManager2* gameEventManager;
-extern IPlayerInfoManager* playerinfoManager;
 extern IBotManager* botManager;
 extern IServerPluginHelpers* helpers;
 extern IUniformRandomStream* randomStream;
 extern IEngineTrace* engineTrace;
-extern IEngineSound* engineSound;
 extern IEngineServiceMgr* engineServiceManager;
 extern INetworkMessages* networkMessages;
 extern INetworkStringTableContainer* netStringTables;
@@ -109,8 +103,6 @@ extern VoiceManager voiceManager;
 extern TickScheduler tickScheduler;
 
 extern HookManager hookManager;
-extern SourceHook::ISourceHook* source_hook;
-extern int source_hook_pluginid;
 extern IGameEventSystem* gameEventSystem;
 extern CounterStrikeSharpMMPlugin* mmPlugin;
 extern ISmmAPI* ismm;
@@ -123,14 +115,13 @@ typedef void GameEventManagerInit_t(IGameEventManager2* gameEventManager);
 typedef IGameEventListener2* GetLegacyGameEventListener_t(CPlayerSlot slot);
 typedef void* NetworkStateChanged_t(void* chainEntity, CNetworkStateChangedInfo& info);
 
-static void DetourGameEventManagerInit(IGameEventManager2* gameEventManager);
-
 extern bool gameLoopInitialized;
 extern GetLegacyGameEventListener_t* GetLegacyGameEventListener;
 inline NetworkStateChanged_t* NetworkStateChanged = nullptr;
 extern std::thread::id gameThreadId;
 
 void Initialize();
+void ShutdownHooks();
 // Should only be called within the active game loop (i e map should be loaded
 // and active) otherwise that'll be nullptr!
 CGlobalVars* getGlobalVars();
@@ -152,8 +143,3 @@ extern CModule* vscript;
 } // namespace modules
 
 } // namespace counterstrikesharp
-
-#undef SH_GLOB_SHPTR
-#define SH_GLOB_SHPTR counterstrikesharp::globals::source_hook
-#undef SH_GLOB_PLUGPTR
-#define SH_GLOB_PLUGPTR counterstrikesharp::globals::source_hook_pluginid

@@ -7,8 +7,6 @@ namespace counterstrikesharp {
 
 static ScriptCallback* on_custom_hud_clicked;
 
-SH_DECL_HOOK4_void(IServerGameClients, ClientSvcUserMessage, SH_NOATTRIB, 0, CPlayerSlot, int, uint32, const void*);
-
 CCSCustomHudLayout::CCSCustomHudLayout() {}
 
 CCSCustomHudLayout::~CCSCustomHudLayout() {}
@@ -16,17 +14,14 @@ CCSCustomHudLayout::~CCSCustomHudLayout() {}
 void CCSCustomHudLayout::OnAllInitialized()
 {
     on_custom_hud_clicked = globals::callbackManager.CreateCallback("OnCustomHudClicked");
-    SH_ADD_HOOK(IServerGameClients, ClientSvcUserMessage, globals::serverGameClients,
-                SH_MEMBER(this, &CCSCustomHudLayout::Hook_ClientSvcUserMessage), true);
+    m_hooks.Add(&IServerGameClients::ClientSvcUserMessage, globals::serverGameClients, this, nullptr,
+                &CCSCustomHudLayout::Hook_ClientSvcUserMessage);
 }
 
-void CCSCustomHudLayout::OnShutdown()
-{
-    SH_REMOVE_HOOK(IServerGameClients, ClientSvcUserMessage, globals::serverGameClients,
-                   SH_MEMBER(this, &CCSCustomHudLayout::Hook_ClientSvcUserMessage), true);
-}
+void CCSCustomHudLayout::OnShutdown() { m_hooks.Clear(); }
 
-void CCSCustomHudLayout::Hook_ClientSvcUserMessage(CPlayerSlot slot, int um_type, uint32 size, const void* buf)
+KHook::Return<void>
+CCSCustomHudLayout::Hook_ClientSvcUserMessage(IServerGameClients* hookThis, CPlayerSlot slot, int um_type, uint32 size, const void* buf)
 {
     if (um_type == CS_UM_CustomHudClicked)
     {
@@ -44,7 +39,7 @@ void CCSCustomHudLayout::Hook_ClientSvcUserMessage(CPlayerSlot slot, int um_type
         }
     }
 
-    RETURN_META(MRES_IGNORED);
+    return { KHook::Action::Ignore };
 }
 
 CCSCustomHudLayoutState& CCSCustomHudLayout::GetLayoutState(CCSPlayerController* pController)
@@ -88,7 +83,11 @@ void CCSCustomHudLayout::SetDialogVariableString(std::string sPanelId,
     auto dialogVariableIndex = layoutState.m_vecDialogVariableStrings()->Find(dialogVariable);
     if (dialogVariableIndex == -1) layoutState.m_vecDialogVariableStrings()->AddToTail(dialogVariable);
     else
-        layoutState.m_vecDialogVariableStrings()->Element(dialogVariableIndex).m_sValue = sValue.c_str();
+    {
+        auto& existing = layoutState.m_vecDialogVariableStrings()->Element(dialogVariableIndex);
+        existing.m_sValue = sValue.c_str();
+        existing.m_bIsSet = true;
+    }
 }
 void CCSCustomHudLayout::SetInputCaptureEnabled(bool bEnable, CCSPlayerController* pController)
 {

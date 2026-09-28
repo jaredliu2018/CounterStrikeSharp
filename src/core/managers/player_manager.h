@@ -105,7 +105,6 @@ class CPlayer
   public:
     std::string m_name;
     std::string m_name_override;
-    IPlayerInfo* m_info = nullptr;
     std::string m_auth_id;
     bool m_is_connected = false;
     bool m_is_fake_client = false;

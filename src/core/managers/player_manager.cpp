@@ -36,12 +36,10 @@
 #include <public/eiface.h>
 #include <public/inetchannelinfo.h>
 #include <public/iserver.h>
-#include <sourcehook/sourcehook.h>
 
 #include "core/log.h"
 #include "core/timer_system.h"
 #include "scripting/callback_manager.h"
-#include <iplayerinfo.h>
 #include "player_manager.h"
 #include <entity2/entitysystem.h>
 #include "entity/dump.h"
@@ -119,8 +117,13 @@ void PlayerManager::OnShutdown()
     globals::callbackManager.ReleaseCallback(m_on_player_buttons_changed_callback);
 }
 
-bool PlayerManager::OnClientConnect(
-    CPlayerSlot slot, const char* pszName, uint64 xuid, const char* pszNetworkID, bool unk1, CBufferString* pRejectReason)
+KHook::Return<bool> PlayerManager::OnClientConnect(IServerGameClients* hookThis,
+                                                   CPlayerSlot slot,
+                                                   const char* pszName,
+                                                   uint64 xuid,
+                                                   const char* pszNetworkID,
+                                                   bool unk1,
+                                                   CBufferString* pRejectReason)
 {
     CSSHARP_CORE_TRACE("[PlayerManager][OnClientConnect] - {}, {}, {}", slot.Get(), pszName, pszNetworkID);
 
@@ -129,8 +132,8 @@ bool PlayerManager::OnClientConnect(
 
     if (pPlayer->IsConnected())
     {
-        OnClientDisconnect(slot, ENetworkDisconnectionReason::NETWORK_DISCONNECT_INVALID, pszName, xuid, pszNetworkID);
-        OnClientDisconnect_Post(slot, ENetworkDisconnectionReason::NETWORK_DISCONNECT_INVALID, pszName, xuid, pszNetworkID);
+        OnClientDisconnect(hookThis, slot, ENetworkDisconnectionReason::NETWORK_DISCONNECT_INVALID, pszName, xuid, pszNetworkID);
+        OnClientDisconnect_Post(hookThis, slot, ENetworkDisconnectionReason::NETWORK_DISCONNECT_INVALID, pszName, xuid, pszNetworkID);
     }
 
     pPlayer->Initialize(pszName, pszNetworkID, slot);
@@ -156,23 +159,30 @@ bool PlayerManager::OnClientConnect(
         //
         //            if (!pPlayer->IsFakeClient())
         //            {
-        //                RETURN_META_VALUE(MRES_SUPERCEDE, false);
+        //                return {KHook::Action::Supersede, false};
         //            }
         //        }
     }
 
     m_user_id_lookup[globals::engine->GetPlayerUserId(slot).Get()] = client;
 
-    return true;
+    return { KHook::Action::Ignore, true };
 }
 
-bool PlayerManager::OnClientConnect_Post(
-    CPlayerSlot slot, const char* pszName, uint64 xuid, const char* pszNetworkID, bool unk1, CBufferString* pRejectReason)
+KHook::Return<bool> PlayerManager::OnClientConnect_Post(IServerGameClients* hookThis,
+                                                        CPlayerSlot slot,
+                                                        const char* pszName,
+                                                        uint64 xuid,
+                                                        const char* pszNetworkID,
+                                                        bool unk1,
+                                                        CBufferString* pRejectReason)
 {
     CSSHARP_CORE_TRACE("[PlayerManager][OnClientConnect_Post] - {}, {}, {}", slot.Get(), pszName, pszNetworkID);
 
     int client = slot.Get();
-    bool orig_value = META_RESULT_ORIG_RET(bool);
+    auto* originalValue = static_cast<bool*>(KHook::GetOriginalValuePtr());
+    auto* overrideValue = static_cast<bool*>(KHook::GetOverrideValuePtr());
+    bool orig_value = originalValue ? *originalValue : (overrideValue && *overrideValue);
     CPlayer* pPlayer = &m_players[client];
 
     if (orig_value)
@@ -191,10 +201,11 @@ bool PlayerManager::OnClientConnect_Post(
         InvalidatePlayer(pPlayer);
     }
 
-    return true;
+    return { KHook::Action::Ignore, true };
 }
 
-void PlayerManager::OnClientPutInServer(CPlayerSlot slot, char const* pszName, int type, uint64 xuid)
+KHook::Return<void>
+PlayerManager::OnClientPutInServer(IServerGameClients* hookThis, CPlayerSlot slot, char const* pszName, int type, uint64 xuid)
 {
     CSSHARP_CORE_TRACE("[PlayerManager][OnClientPutInServer] - {}, {}, {}", slot.Get(), pszName, type);
 
@@ -205,21 +216,18 @@ void PlayerManager::OnClientPutInServer(CPlayerSlot slot, char const* pszName, i
     {
         pPlayer->m_is_fake_client = true;
 
-        if (!OnClientConnect(slot, pszName, 0, "127.0.0.1", false, new CBufferStringGrowable<255>()))
+        CBufferStringGrowable<255> rejectReason;
+        auto connectResult = OnClientConnect(hookThis, slot, pszName, 0, "127.0.0.1", false, &rejectReason);
+        if (connectResult.action == KHook::Action::Supersede && !connectResult.ret)
         {
             /* :TODO: kick the bot if it's rejected */
-            return;
+            return { KHook::Action::Ignore };
         }
 
         m_on_client_connected_callback->ScriptContext().Reset();
         m_on_client_connected_callback->ScriptContext().Push(pPlayer->m_slot.Get());
         m_on_client_connected_callback->Execute();
     }
-
-    //    if (globals::playerinfoManager != nullptr)
-    //    {
-    //        pPlayer->m_info = globals::playerinfoManager->GetPlayerInfo(m_slot);
-    //    }
 
     pPlayer->Connect();
     m_player_count++;
@@ -230,10 +238,15 @@ void PlayerManager::OnClientPutInServer(CPlayerSlot slot, char const* pszName, i
     m_on_client_put_in_server_callback->ScriptContext().Reset();
     m_on_client_put_in_server_callback->ScriptContext().Push(pPlayer->m_slot.Get());
     m_on_client_put_in_server_callback->Execute();
+    return { KHook::Action::Ignore };
 }
 
-void PlayerManager::OnClientDisconnect(
-    CPlayerSlot slot, ENetworkDisconnectionReason reason, const char* pszName, uint64 xuid, const char* pszNetworkID)
+KHook::Return<void> PlayerManager::OnClientDisconnect(IServerGameClients* hookThis,
+                                                      CPlayerSlot slot,
+                                                      ENetworkDisconnectionReason reason,
+                                                      const char* pszName,
+                                                      uint64 xuid,
+                                                      const char* pszNetworkID)
 {
     CSSHARP_CORE_TRACE("[PlayerManager][OnClientDisconnect] - {}, {}, {}", slot.Get(), pszName, pszNetworkID);
 
@@ -254,10 +267,15 @@ void PlayerManager::OnClientDisconnect(
     }
 
     // globals::entityListener.HandleEntityDeleted(pPlayer->GetBaseEntity(), client);
+    return { KHook::Action::Ignore };
 }
 
-void PlayerManager::OnClientDisconnect_Post(
-    CPlayerSlot slot, ENetworkDisconnectionReason reason, const char* pszName, uint64 xuid, const char* pszNetworkID) const
+KHook::Return<void> PlayerManager::OnClientDisconnect_Post(IServerGameClients* hookThis,
+                                                           CPlayerSlot slot,
+                                                           ENetworkDisconnectionReason reason,
+                                                           const char* pszName,
+                                                           uint64 xuid,
+                                                           const char* pszNetworkID)
 {
     CSSHARP_CORE_TRACE("[PlayerManager][OnClientDisconnect_Post] - {}, {}, {}", slot.Get(), pszName, pszNetworkID);
 
@@ -266,7 +284,7 @@ void PlayerManager::OnClientDisconnect_Post(
     if (!pPlayer->IsConnected())
     {
         /* We don't care, prevent a double call */
-        return;
+        return { KHook::Action::Ignore };
     }
 
     InvalidatePlayer(pPlayer);
@@ -275,15 +293,34 @@ void PlayerManager::OnClientDisconnect_Post(
     m_on_client_disconnect_post_callback->ScriptContext().Push(pPlayer->m_slot.Get());
     m_on_client_disconnect_post_callback->ScriptContext().Push(reason);
     m_on_client_disconnect_post_callback->Execute();
+    return { KHook::Action::Ignore };
 }
 
-void PlayerManager::OnClientVoice(CPlayerSlot slot) const
+KHook::Return<void> PlayerManager::OnClientVoice(IServerGameClients* hookThis, CPlayerSlot slot)
 {
     CSSHARP_CORE_TRACE("[PlayerManager][OnClientVoice] - {}", slot.Get());
 
     m_on_client_voice_callback->ScriptContext().Reset();
     m_on_client_voice_callback->ScriptContext().Push(slot.Get());
     m_on_client_voice_callback->Execute();
+    return { KHook::Action::Ignore };
+}
+
+bool PlayerManager::OnGetPlayerInfo(CPlayerSlot slot, google::protobuf::Message& info) const
+{
+    CSSHARP_CORE_TRACE("[PlayerManager][OnGetPlayerInfo] - {}", slot.Get());
+
+    auto pMsgPlayerInfo = (CMsgPlayerInfo*)&info;
+
+    std::string name = pMsgPlayerInfo->name();
+
+    auto pPlayer = globals::playerManager.GetPlayerBySlot(slot.Get());
+    if (pPlayer != nullptr && pPlayer->m_name_override.length() > 0 && name != pPlayer->m_name_override)
+    {
+        pMsgPlayerInfo->set_name(pPlayer->m_name_override.c_str());
+    }
+
+    RETURN_META_VALUE(MRES_IGNORED, true);
 }
 
 bool PlayerManager::OnGetPlayerInfo(CPlayerSlot slot, google::protobuf::Message& info) const
@@ -311,16 +348,17 @@ void PlayerManager::OnLevelEnd()
     {
         if (m_players[i].IsConnected())
         {
-            OnClientDisconnect(m_players[i].m_slot, ENetworkDisconnectionReason::NETWORK_DISCONNECT_INVALID, m_players[i].GetName(), 0,
-                               m_players[i].GetIpAddress());
-            OnClientDisconnect_Post(m_players[i].m_slot, ENetworkDisconnectionReason::NETWORK_DISCONNECT_INVALID, m_players[i].GetName(), 0,
+            OnClientDisconnect(globals::serverGameClients, m_players[i].m_slot, ENetworkDisconnectionReason::NETWORK_DISCONNECT_INVALID,
+                               m_players[i].GetName(), 0, m_players[i].GetIpAddress());
+            OnClientDisconnect_Post(globals::serverGameClients, m_players[i].m_slot,
+                                    ENetworkDisconnectionReason::NETWORK_DISCONNECT_INVALID, m_players[i].GetName(), 0,
                                     m_players[i].GetIpAddress());
         }
     }
     m_player_count = 0;
 }
 
-void PlayerManager::OnClientCommand(CPlayerSlot slot, const CCommand& args) const
+KHook::Return<void> PlayerManager::OnClientCommand(IServerGameClients* hookThis, CPlayerSlot slot, const CCommand& args)
 {
     CSSHARP_CORE_TRACE("[PlayerManager][OnClientCommand] - {}, {}, {}", slot.Get(), args.Arg(0), (void*)&args);
 
@@ -333,8 +371,9 @@ void PlayerManager::OnClientCommand(CPlayerSlot slot, const CCommand& args) cons
 
     if (result >= HookResult::Handled)
     {
-        RETURN_META(MRES_SUPERCEDE);
+        return { KHook::Action::Supersede };
     }
+    return { KHook::Action::Ignore };
 }
 
 int PlayerManager::ListenClient() const { return m_listen_client; }
@@ -455,8 +494,6 @@ void CPlayer::Initialize(const char* name, const char* ip, CPlayerSlot slot)
     m_name = std::string(name);
     m_ip_address = std::string(ip);
 }
-
-IPlayerInfo* CPlayer::GetPlayerInfo() const { return m_info; }
 
 const char* CPlayer::GetName() const { return strdup(m_name.c_str()); }
 
@@ -607,29 +644,9 @@ void CPlayer::Kick(const char* kickReason)
     globals::engine->ServerCommand(buffer);
 }
 
-const char* CPlayer::GetWeaponName() const { return m_info->GetWeaponName(); }
-
-void CPlayer::ChangeTeam(int team) const { m_info->ChangeTeam(team); }
-
-int CPlayer::GetTeam() const { return m_info->GetTeamIndex(); }
-
-int CPlayer::GetArmor() const { return m_info->GetArmorValue(); }
-
-int CPlayer::GetFrags() const { return m_info->GetFragCount(); }
-
-int CPlayer::GetDeaths() const { return m_info->GetDeathCount(); }
-
 const char* CPlayer::GetKeyValue(const char* key) const { return globals::engine->GetClientConVarValue(m_slot, key); }
 
-Vector CPlayer::GetMaxSize() const { return m_info->GetPlayerMaxs(); }
-
-Vector CPlayer::GetMinSize() const { return m_info->GetPlayerMins(); }
-
-int CPlayer::GetMaxHealth() const { return m_info->GetMaxHealth(); }
-
 const char* CPlayer::GetIpAddress() const { return m_ip_address.c_str(); }
-
-const char* CPlayer::GetModelName() const { return m_info->GetModelName(); }
 
 int CPlayer::GetUserId() const { return m_user_id; }
 
@@ -666,7 +683,6 @@ void CPlayer::Disconnect()
     m_is_connected = false;
     m_is_in_game = false;
     m_name.clear();
-    m_info = nullptr;
     m_is_fake_client = false;
     m_user_id = -1;
     m_is_authorized = false;
@@ -676,19 +692,6 @@ void CPlayer::Disconnect()
     m_voiceFlag = 0;
 }
 
-QAngle CPlayer::GetAbsAngles() const { return m_info->GetAbsAngles(); }
-
-Vector CPlayer::GetAbsOrigin() const { return m_info->GetAbsOrigin(); }
-
-bool CPlayer::IsAlive() const
-{
-    if (!IsInGame())
-    {
-        return false;
-    }
-
-    return !m_info->IsDead();
-}
 const CSteamID* CPlayer::GetSteamId() { return m_steamId; }
 void CPlayer::SetSteamId(const CSteamID* steam_id) { m_steamId = steam_id; }
 

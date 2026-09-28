@@ -134,6 +134,26 @@ public partial class CCSWeaponBase : CBasePlayerWeapon
 	[SchemaMember("CCSWeaponBase", "m_flTimeSilencerSwitchComplete")]
 	public ref float TimeSilencerSwitchComplete => ref Schema.GetRef<float>(this.Handle, "CCSWeaponBase", "m_flTimeSilencerSwitchComplete");
 
+	// m_bStealthy
+	[SchemaMember("CCSWeaponBase", "m_bStealthy")]
+	public ref bool Stealthy => ref Schema.GetRef<bool>(this.Handle, "CCSWeaponBase", "m_bStealthy");
+
+	// m_bInSilentReloadSection
+	[SchemaMember("CCSWeaponBase", "m_bInSilentReloadSection")]
+	public ref bool InSilentReloadSection => ref Schema.GetRef<bool>(this.Handle, "CCSWeaponBase", "m_bInSilentReloadSection");
+
+	// m_bSilentReloadStatCounted
+	[SchemaMember("CCSWeaponBase", "m_bSilentReloadStatCounted")]
+	public ref bool SilentReloadStatCounted => ref Schema.GetRef<bool>(this.Handle, "CCSWeaponBase", "m_bSilentReloadStatCounted");
+
+	// m_flStealthHoldStartTime
+	[SchemaMember("CCSWeaponBase", "m_flStealthHoldStartTime")]
+	public ref float StealthHoldStartTime => ref Schema.GetRef<float>(this.Handle, "CCSWeaponBase", "m_flStealthHoldStartTime");
+
+	// m_bReloadHeldSinceStart
+	[SchemaMember("CCSWeaponBase", "m_bReloadHeldSinceStart")]
+	public ref bool ReloadHeldSinceStart => ref Schema.GetRef<bool>(this.Handle, "CCSWeaponBase", "m_bReloadHeldSinceStart");
+
 	// m_flWeaponActionPlaybackRate
 	[SchemaMember("CCSWeaponBase", "m_flWeaponActionPlaybackRate")]
 	public ref float WeaponActionPlaybackRate => ref Schema.GetRef<float>(this.Handle, "CCSWeaponBase", "m_flWeaponActionPlaybackRate");

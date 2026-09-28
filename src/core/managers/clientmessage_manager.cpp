@@ -12,8 +12,6 @@
 
 using namespace google;
 
-SH_DECL_MANUALHOOK2(FilterMessage, 0, 0, 0, bool, const CNetMessage*, INetChannel*);
-
 namespace counterstrikesharp {
 ClientMessageManager::ClientMessageManager() {}
 
@@ -29,11 +27,11 @@ void ClientMessageManager::OnAllInitialized()
         return;
     }
 
-    m_hookid =
-        SH_ADD_MANUALDVPHOOK(FilterMessage, serverSideClientVTable, SH_MEMBER(this, &ClientMessageManager::Hook_FilterMessage), false);
+    m_hooks.AddGlobal(&INetworkMessageProcessingPreFilter::FilterMessage, reinterpret_cast<void**>(serverSideClientVTable), this,
+                      &ClientMessageManager::Hook_FilterMessage, nullptr);
 }
 
-void ClientMessageManager::OnShutdown() { SH_REMOVE_HOOK_ID(m_hookid); }
+void ClientMessageManager::OnShutdown() { m_hooks.Clear(); }
 
 void ClientMessageManager::HookClientMessage(int messageId, CallbackT fnCallback, HookMode mode)
 {
@@ -148,14 +146,16 @@ bool ClientMessageManager::FindPlayerByNetChan(INetChannel* pChannel, CPlayerSlo
     return false;
 }
 
-bool ClientMessageManager::Hook_FilterMessage(const CNetMessage* pData, INetChannel* pChannel)
+KHook::Return<bool> ClientMessageManager::Hook_FilterMessage(INetworkMessageProcessingPreFilter* hookThis,
+                                                             const CNetMessage* pData,
+                                                             INetChannel* pChannel)
 {
     INetworkMessageInternal* pEvent = pData->GetNetMessage();
 
     CPlayerSlot player(0);
     if (!FindPlayerByNetChan(pChannel, &player))
     {
-        return false;
+        return { KHook::Action::Ignore, false };
     }
 
     int sender = player.Get();
@@ -188,7 +188,7 @@ bool ClientMessageManager::Hook_FilterMessage(const CNetMessage* pData, INetChan
 
                 if (hookResult >= HookResult::Stop)
                 {
-                    RETURN_META_VALUE(MRES_SUPERCEDE, true);
+                    return { KHook::Action::Supersede, true };
                 }
 
                 if (hookResult >= HookResult::Handled)
@@ -201,10 +201,10 @@ bool ClientMessageManager::Hook_FilterMessage(const CNetMessage* pData, INetChan
 
     if (result >= HookResult::Handled)
     {
-        RETURN_META_VALUE(MRES_SUPERCEDE, true);
+        return { KHook::Action::Supersede, true };
     }
 
-    RETURN_META_VALUE(MRES_IGNORED, true);
+    return { KHook::Action::Ignore, true };
 }
 
 } // namespace counterstrikesharp

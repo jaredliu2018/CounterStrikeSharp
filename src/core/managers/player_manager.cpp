@@ -44,23 +44,8 @@
 #include <entity2/entitysystem.h>
 #include "entity/dump.h"
 #include <vprof.h>
-#include "networkbasetypes.pb.h"
 #include "networkstringtabledefs.h"
 // extern CEntitySystem *g_pEntitySystem;
-
-SH_DECL_HOOK4_void(IServerGameClients, ClientActive, SH_NOATTRIB, 0, CPlayerSlot, bool, const char*, uint64);
-SH_DECL_HOOK5_void(
-    IServerGameClients, ClientDisconnect, SH_NOATTRIB, 0, CPlayerSlot, ENetworkDisconnectionReason, const char*, uint64, const char*);
-
-SH_DECL_HOOK1_void(IServerGameClients, ClientVoice, SH_NOATTRIB, 0, CPlayerSlot);
-SH_DECL_HOOK4_void(IServerGameClients, ClientPutInServer, SH_NOATTRIB, 0, CPlayerSlot, char const*, int, uint64);
-SH_DECL_HOOK1_void(IServerGameClients, ClientSettingsChanged, SH_NOATTRIB, 0, CPlayerSlot);
-SH_DECL_HOOK6_void(IServerGameClients, OnClientConnected, SH_NOATTRIB, 0, CPlayerSlot, const char*, uint64, const char*, const char*, bool);
-SH_DECL_HOOK6(IServerGameClients, ClientConnect, SH_NOATTRIB, 0, bool, CPlayerSlot, const char*, uint64, const char*, bool, CBufferString*);
-
-SH_DECL_HOOK2_void(IServerGameClients, ClientCommand, SH_NOATTRIB, 0, CPlayerSlot, const CCommand&);
-
-SH_DECL_HOOK2(IVEngineServer2, GetPlayerInfo, SH_NOATTRIB, 0, bool, CPlayerSlot, google::protobuf::Message&);
 
 namespace counterstrikesharp {
 
@@ -68,18 +53,14 @@ void PlayerManager::OnStartup() {}
 
 void PlayerManager::OnAllInitialized()
 {
-    SH_ADD_HOOK(IServerGameClients, ClientConnect, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientConnect), false);
-    SH_ADD_HOOK(IServerGameClients, ClientConnect, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientConnect_Post), true);
-    SH_ADD_HOOK(IServerGameClients, ClientPutInServer, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientPutInServer),
-                true);
-    SH_ADD_HOOK(IServerGameClients, ClientDisconnect, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientDisconnect),
-                false);
-    SH_ADD_HOOK(IServerGameClients, ClientDisconnect, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientDisconnect_Post),
-                true);
-    SH_ADD_HOOK(IServerGameClients, ClientCommand, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientCommand), false);
-    SH_ADD_HOOK(IServerGameClients, ClientVoice, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientVoice), true);
-
-    SH_ADD_HOOK(IVEngineServer2, GetPlayerInfo, globals::engine, SH_MEMBER(this, &PlayerManager::OnGetPlayerInfo), true);
+    m_hooks.Add(&IServerGameClients::ClientConnect, globals::serverGameClients, this, &PlayerManager::OnClientConnect, nullptr);
+    m_hooks.Add(&IServerGameClients::ClientConnect, globals::serverGameClients, this, nullptr, &PlayerManager::OnClientConnect_Post);
+    m_hooks.Add(&IServerGameClients::ClientPutInServer, globals::serverGameClients, this, nullptr, &PlayerManager::OnClientPutInServer);
+    m_hooks.Add(&IServerGameClients::ClientDisconnect, globals::serverGameClients, this, &PlayerManager::OnClientDisconnect, nullptr);
+    m_hooks.Add(&IServerGameClients::ClientDisconnect, globals::serverGameClients, this, nullptr, &PlayerManager::OnClientDisconnect_Post);
+    m_hooks.Add(&IServerGameClients::ClientCommand, globals::serverGameClients, this, &PlayerManager::OnClientCommand, nullptr);
+    m_hooks.Add(&IServerGameClients::ClientVoice, globals::serverGameClients, this, nullptr, &PlayerManager::OnClientVoice);
+    m_hooks.Add(&IVEngineServer2::GetPlayerInfo, globals::engine, this, nullptr, &PlayerManager::OnGetPlayerInfo);
 
     m_on_client_connect_callback = globals::callbackManager.CreateCallback("OnClientConnect");
     m_on_client_connected_callback = globals::callbackManager.CreateCallback("OnClientConnected");
@@ -93,19 +74,7 @@ void PlayerManager::OnAllInitialized()
 
 void PlayerManager::OnShutdown()
 {
-    SH_REMOVE_HOOK(IServerGameClients, ClientConnect, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientConnect), false);
-    SH_REMOVE_HOOK(IServerGameClients, ClientConnect, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientConnect_Post),
-                   true);
-    SH_REMOVE_HOOK(IServerGameClients, ClientPutInServer, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientPutInServer),
-                   true);
-    SH_REMOVE_HOOK(IServerGameClients, ClientDisconnect, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientDisconnect),
-                   false);
-    SH_REMOVE_HOOK(IServerGameClients, ClientDisconnect, globals::serverGameClients,
-                   SH_MEMBER(this, &PlayerManager::OnClientDisconnect_Post), true);
-    SH_REMOVE_HOOK(IServerGameClients, ClientCommand, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientCommand), false);
-    SH_REMOVE_HOOK(IServerGameClients, ClientVoice, globals::serverGameClients, SH_MEMBER(this, &PlayerManager::OnClientVoice), true);
-
-    SH_REMOVE_HOOK(IVEngineServer2, GetPlayerInfo, globals::engine, SH_MEMBER(this, &PlayerManager::OnGetPlayerInfo), true);
+    m_hooks.Clear();
 
     globals::callbackManager.ReleaseCallback(m_on_client_connect_callback);
     globals::callbackManager.ReleaseCallback(m_on_client_connected_callback);
@@ -306,7 +275,7 @@ KHook::Return<void> PlayerManager::OnClientVoice(IServerGameClients* hookThis, C
     return { KHook::Action::Ignore };
 }
 
-bool PlayerManager::OnGetPlayerInfo(CPlayerSlot slot, google::protobuf::Message& info) const
+KHook::Return<bool> PlayerManager::OnGetPlayerInfo(IVEngineServer2* hookThis, CPlayerSlot slot, google::protobuf::Message& info)
 {
     CSSHARP_CORE_TRACE("[PlayerManager][OnGetPlayerInfo] - {}", slot.Get());
 
@@ -320,24 +289,7 @@ bool PlayerManager::OnGetPlayerInfo(CPlayerSlot slot, google::protobuf::Message&
         pMsgPlayerInfo->set_name(pPlayer->m_name_override.c_str());
     }
 
-    RETURN_META_VALUE(MRES_IGNORED, true);
-}
-
-bool PlayerManager::OnGetPlayerInfo(CPlayerSlot slot, google::protobuf::Message& info) const
-{
-    CSSHARP_CORE_TRACE("[PlayerManager][OnGetPlayerInfo] - {}", slot.Get());
-
-    auto pMsgPlayerInfo = (CMsgPlayerInfo*)&info;
-
-    std::string name = pMsgPlayerInfo->name();
-
-    auto pPlayer = globals::playerManager.GetPlayerBySlot(slot.Get());
-    if (pPlayer != nullptr && pPlayer->m_name_override.length() > 0 && name != pPlayer->m_name_override)
-    {
-        pMsgPlayerInfo->set_name(pPlayer->m_name_override.c_str());
-    }
-
-    RETURN_META_VALUE(MRES_IGNORED, true);
+    return { KHook::Action::Ignore, true };
 }
 
 void PlayerManager::OnLevelEnd()
@@ -550,28 +502,27 @@ void CPlayer::SetNameOverride(const char* name) { m_name_override = strdup(name)
 
 void CPlayer::SetAvatar(uint64 steamid, void* buffer, int size)
 {
-    if (buffer == NULL || size > 16384)
+    if (globals::netStringTables == nullptr || buffer == nullptr || size < 0 || size > 16384)
     {
         return;
     }
 
     auto table = globals::netStringTables->FindTable("ServerAvatarOverrides");
-
-    if (table != NULL)
+    if (table == nullptr)
     {
-        char steamidStr[32];
+        return;
+    }
 
-        snprintf(steamidStr, sizeof(steamidStr), "%llu", steamid);
+    char steamidString[32];
+    snprintf(steamidString, sizeof(steamidString), "%llu", static_cast<unsigned long long>(steamid));
 
-        int index = table->FindStringIndex(steamidStr);
-
-        if (index != INVALID_STRING_INDEX)
-        {
-            SetStringUserDataRequest_t req;
-            req.m_pRawData = buffer;
-            req.m_cbDataSize = size;
-            table->SetStringUserData(index, &req, true);
-        }
+    int index = table->FindStringIndex(steamidString);
+    if (index != INVALID_STRING_INDEX)
+    {
+        SetStringUserDataRequest_t request;
+        request.m_pRawData = buffer;
+        request.m_cbDataSize = size;
+        table->SetStringUserData(index, &request, true);
     }
 }
 

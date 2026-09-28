@@ -36,6 +36,7 @@
 #include "core/global_listener.h"
 #include "core/globals.h"
 #include "core/hooks.h"
+#include "networkbasetypes.pb.h"
 
 class CBaseEntity;
 class INetChannelInfo;
@@ -163,7 +164,7 @@ class PlayerManager : public GlobalClass
                                                 uint64 xuid,
                                                 const char* pszNetworkID);
     KHook::Return<void> OnClientVoice(IServerGameClients* hookThis, CPlayerSlot slot);
-    bool OnGetPlayerInfo(CPlayerSlot slot, google::protobuf::Message& info) const;
+    KHook::Return<bool> OnGetPlayerInfo(IVEngineServer2* hookThis, CPlayerSlot slot, google::protobuf::Message& info);
     void OnAuthorized(CPlayer* player) const;
     void OnServerActivate(edict_t* pEdictList, int edictCount, int clientMax) const;
     void OnThink(bool last_tick) const;

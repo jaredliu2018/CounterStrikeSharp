@@ -23,7 +23,6 @@
 #include "core/managers/usermessage_manager.h"
 #include "core/customhudlayout.h"
 #include "core/managers/clientmessage_manager.h"
-#include <public/game/server/iplayerinfo.h>
 #include <public/entity2/entitysystem.h>
 
 #include "core/hooks.h"

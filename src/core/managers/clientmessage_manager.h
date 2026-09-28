@@ -18,6 +18,7 @@
 
 #include "core/global_listener.h"
 #include "core/globals.h"
+#include "core/hooks.h"
 #include "inetchannel.h"
 #include "networksystem/inetworkserializer.h"
 #include "scripting/script_engine.h"
@@ -39,13 +40,18 @@ struct ClientMessageHook
 
 class ClientMessageManager : public GlobalClass
 {
+  private:
+    HookSet m_hooks;
+
   public:
     ClientMessageManager();
     ~ClientMessageManager();
     void OnAllInitialized() override;
     void OnShutdown() override;
     bool FindPlayerByNetChan(INetChannel* pChannel, CPlayerSlot* pFoundSlot);
-    bool Hook_FilterMessage(const CNetMessage* pData, INetChannel* pChannel);
+    KHook::Return<bool> Hook_FilterMessage(INetworkMessageProcessingPreFilter* hookThis,
+                                            const CNetMessage* pData,
+                                            INetChannel* pChannel);
 
     void UnhookClientMessage(int messageId, CallbackT fnCallback, HookMode mode);
     void HookClientMessage(int messageId, CallbackT fnCallback, HookMode mode);
@@ -53,7 +59,6 @@ class ClientMessageManager : public GlobalClass
   private:
     ScriptCallback* m_on_client_message_callback;
     std::map<int, ClientMessageHook*> m_hooksMap;
-    int m_hookid;
 };
 
 } // namespace counterstrikesharp

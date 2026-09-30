@@ -49,9 +49,7 @@ class ClientMessageManager : public GlobalClass
     void OnAllInitialized() override;
     void OnShutdown() override;
     bool FindPlayerByNetChan(INetChannel* pChannel, CPlayerSlot* pFoundSlot);
-    KHook::Return<bool> Hook_FilterMessage(INetworkMessageProcessingPreFilter* hookThis,
-                                            const CNetMessage* pData,
-                                            INetChannel* pChannel);
+    KHook::Return<bool> Hook_FilterMessage(INetworkMessageProcessingPreFilter* hookThis, const CNetMessage* pData, INetChannel* pChannel);
 
     void UnhookClientMessage(int messageId, CallbackT fnCallback, HookMode mode);
     void HookClientMessage(int messageId, CallbackT fnCallback, HookMode mode);

@@ -146,9 +146,8 @@ bool ClientMessageManager::FindPlayerByNetChan(INetChannel* pChannel, CPlayerSlo
     return false;
 }
 
-KHook::Return<bool> ClientMessageManager::Hook_FilterMessage(INetworkMessageProcessingPreFilter* hookThis,
-                                                             const CNetMessage* pData,
-                                                             INetChannel* pChannel)
+KHook::Return<bool>
+ClientMessageManager::Hook_FilterMessage(INetworkMessageProcessingPreFilter* hookThis, const CNetMessage* pData, INetChannel* pChannel)
 {
     INetworkMessageInternal* pEvent = pData->GetNetMessage();
 

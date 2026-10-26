@@ -2,7 +2,7 @@
 #include "core/globals.h"
 #include "core/managers/player_manager.h"
 #include "core/tick_scheduler.h"
-#include "iserver.h"
+#include "engine2/inetworkgameserver.h"
 #include "managers/event_manager.h"
 #include "scripting/callback_manager.h"
 #include "scripting/dotnet_host.h"
@@ -14,6 +14,7 @@
 #include "utils/virtual.h"
 #include "core/memory.h"
 #include "core/managers/con_command_manager.h"
+#include "core/managers/convar_manager.h"
 #include "core/managers/chat_manager.h"
 #include "memory_module.h"
 #include "interfaces/cs2_interfaces.h"
@@ -74,6 +75,7 @@ ISource2GameEntities* gameEntities = nullptr;
 
 // Custom Managers
 CallbackManager callbackManager;
+ConVarManager convarManager;
 EventManager eventManager;
 PlayerManager playerManager;
 TimerSystem timerSystem;

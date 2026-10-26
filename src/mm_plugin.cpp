@@ -16,6 +16,7 @@
 
 #include <cstdio>
 
+#include "convar.h"
 #include "core/detours.h"
 #include "core/coreconfig.h"
 #include "core/game_system.h"
@@ -28,15 +29,15 @@
 #include "core/timer_system.h"
 #include "core/utils.h"
 #include "entity2/entitysystem.h"
-#include "igameeventsystem.h"
+#include "engine2/igameeventsystem.h"
 #include "interfaces/cs2_interfaces.h"
-#include "iserver.h"
+#include "engine2/inetworkgameserver.h"
 #include "scripting/callback_manager.h"
 #include "scripting/dotnet_host.h"
 #include "scripting/script_engine.h"
 #include "tier0/vprof.h"
 #include "tier0/icommandline.h"
-#include "tier1/utlstringtoken.h"
+#include "tier0/utlstringtoken.h"
 
 DLL_IMPORT ICommandLine* CommandLine();
 
@@ -44,8 +45,6 @@ DLL_IMPORT ICommandLine* CommandLine();
 #define BUILD_TIMESTAMP __DATE__ " " __TIME__
 
 counterstrikesharp::GlobalClass* counterstrikesharp::GlobalClass::head = nullptr;
-
-CGameEntitySystem* GameEntitySystem() { return counterstrikesharp::globals::entitySystem; }
 
 // TODO: Workaround for windows, we __MUST__ have COUNTERSTRIKESHARP_API to handle it.
 // like on windows it should be `extern "C" __declspec(dllexport)`, on linux it should be anything else.
@@ -76,11 +75,6 @@ PLUGIN_EXPOSE(CounterStrikeSharpMMPlugin, counterstrikesharp::gPlugin);
 namespace counterstrikesharp {
 
 CounterStrikeSharpMMPlugin gPlugin;
-
-#if 0
-// Currently unavailable, requires hl2sdk work!
-ConVar sample_cvar("sample_cvar", "42", 0);
-#endif
 
 bool CounterStrikeSharpMMPlugin::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool late)
 {
@@ -230,7 +224,7 @@ KHook::Return<void> CounterStrikeSharpMMPlugin::Hook_StartupServer(INetworkServe
                                                                    ISource2WorldSession*,
                                                                    const char*)
 {
-    globals::entitySystem = interfaces::pGameResourceServiceServer->GetGameEntitySystem();
+    globals::entitySystem = GameEntitySystem();
     globals::entitySystem->AddListenerEntity(&globals::entityManager.entityListener);
 
     globals::timerSystem.OnStartupServer();

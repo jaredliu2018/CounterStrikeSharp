@@ -137,6 +137,8 @@ namespace CounterStrikeSharp.API.Core
         internal readonly Dictionary<Delegate, EntityIO.EntityOutputCallback> EntitySingleOutputHooks =
             new Dictionary<Delegate, EntityIO.EntityOutputCallback>();
 
+        internal readonly List<ConVarBase> ConVars = [];
+
         public readonly List<CommandDefinition> CommandDefinitions = new List<CommandDefinition>();
 
         public readonly List<Timer> Timers = new List<Timer>();
@@ -396,6 +398,7 @@ namespace CounterStrikeSharp.API.Core
             this.RegisterAttributeHandlers(instance);
             this.RegisterConsoleCommandAttributeHandlers(instance);
             this.RegisterEntityOutputAttributeHandlers(instance);
+            this.RegisterConVars(instance);
             this.RegisterFakeConVars(instance);
         }
 
@@ -554,6 +557,20 @@ namespace CounterStrikeSharp.API.Core
             }
         }
 
+        public void RegisterConVars(Type type, object instance = null)
+        {
+            var convars = type
+                .GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static)
+                .Where(prop => prop.FieldType.IsGenericType && 
+                               prop.FieldType.GetGenericTypeDefinition() == typeof(ConVar<>));
+            
+            foreach (var prop in convars)
+            {
+                if (prop.GetValue(instance) is ConVarBase { Owned: true } conVar)
+                    ConVars.Add(conVar);
+            }
+        }
+        
         /// <summary>
         /// Used to bind a fake ConVar to a plugin command. Only required for ConVars that are not public properties of the plugin class.
         /// </summary>
@@ -562,6 +579,10 @@ namespace CounterStrikeSharp.API.Core
         public void RegisterFakeConVars(object instance)
         {
             RegisterFakeConVars(instance.GetType(), instance);
+        }
+
+        public void RegisterConVars(object instance) {
+            RegisterConVars(instance.GetType(), instance);
         }
 
         /// <summary>
@@ -702,6 +723,13 @@ namespace CounterStrikeSharp.API.Core
             foreach (var subscriber in EntityOutputHooks.Values)
             {
                 subscriber.Dispose();
+            }
+
+            foreach (var convar in ConVars)
+            {
+                if (!convar.IsValid) continue;
+
+                convar.Delete();
             }
 
             foreach (var definition in CommandDefinitions)

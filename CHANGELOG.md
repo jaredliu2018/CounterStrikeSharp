@@ -1,3 +1,23 @@
+## What's Changed in v1.0.380
+* fix: Game Update 1.41.9.7 ([2eb9a57](https://github.com/roflmuffin/CounterStrikeSharp/commit/2eb9a57d800b662e1d728188f7441fa0ede8bf57))
+* fix: format a native error message once, with a bound by [@makadore](https://github.com/makadore) in [#1485](https://github.com/roflmuffin/CounterStrikeSharp/pull/1485) ([1a23fef](https://github.com/roflmuffin/CounterStrikeSharp/commit/1a23fef2d479210a3517339fa8ab3bfb3e7ff67b))
+* fix: handle timer removal during callbacks by [@makadore](https://github.com/makadore) in [#1484](https://github.com/roflmuffin/CounterStrikeSharp/pull/1484) ([19db7bb](https://github.com/roflmuffin/CounterStrikeSharp/commit/19db7bbd7a5ef7a8ca7465576c28d2980d42c20c))
+* chore: update server sync script ([e87249e](https://github.com/roflmuffin/CounterStrikeSharp/commit/e87249eec33d6227113e8177291e1fad4582bff0))
+* feat: cache the game rules entity behind Utilities.GetGameRules by [@makadore](https://github.com/makadore) in [#1477](https://github.com/roflmuffin/CounterStrikeSharp/pull/1477) ([d0d812b](https://github.com/roflmuffin/CounterStrikeSharp/commit/d0d812b23160fd684f32915e57c5d4d253779054))
+* fix: key memory function caches by argument and return types by [@adammyllykoski](https://github.com/adammyllykoski) in [#1476](https://github.com/roflmuffin/CounterStrikeSharp/pull/1476) ([b517fb2](https://github.com/roflmuffin/CounterStrikeSharp/commit/b517fb2b7dd0a3658aab211ab6eae44dba4f76b1))
+
+## What's Changed in v1.0.379
+* chore: Update Schema Definitions to 1.41.9.3 in [#1471](https://github.com/roflmuffin/CounterStrikeSharp/pull/1471) ([5cbbd91](https://github.com/roflmuffin/CounterStrikeSharp/commit/5cbbd91347cee9f1aa009809a5b6fafbd92c4d22))
+* fix: do not persist failed entity list lookup by [@makadore](https://github.com/makadore) in [#1475](https://github.com/roflmuffin/CounterStrikeSharp/pull/1475) ([57a2b06](https://github.com/roflmuffin/CounterStrikeSharp/commit/57a2b06afafccffceb4a4828190b8bc7d7b89c85))
+* chore: update game events after 1.41.9.2 ([34c633f](https://github.com/roflmuffin/CounterStrikeSharp/commit/34c633f15887795d00de10ce1f6539e7367d5e56))
+* chore: fix line endings in schema generator ([d2b99dc](https://github.com/roflmuffin/CounterStrikeSharp/commit/d2b99dc16803494c641996bb11439b4fabe649d0))
+* fix: stale schema networked flags when accessed early by [@makadore](https://github.com/makadore) in [#1473](https://github.com/roflmuffin/CounterStrikeSharp/pull/1473) ([d8f6a3e](https://github.com/roflmuffin/CounterStrikeSharp/commit/d8f6a3ecd172b88fae592a5021eea52091090755))
+* docs: add real ConVar example doc ([cf237b3](https://github.com/roflmuffin/CounterStrikeSharp/commit/cf237b32a061fdb47b5e792fda6d39dd872abd0f))
+* feat: add Convar<T> for real convar creation/deletion/access in [#935](https://github.com/roflmuffin/CounterStrikeSharp/pull/935) ([4f90d52](https://github.com/roflmuffin/CounterStrikeSharp/commit/4f90d520a21a2d7d8ca41e504492384f52f8e70c))
+
+## New Contributors
+* [@makadore](https://github.com/makadore) made their first contribution in [#1475](https://github.com/roflmuffin/CounterStrikeSharp/pull/1475)
+
 ## What's Changed in v1.0.378
 * chore: Update Schema Definitions to 1.41.9.2 in [#1447](https://github.com/roflmuffin/CounterStrikeSharp/pull/1447) ([86d3f07](https://github.com/roflmuffin/CounterStrikeSharp/commit/86d3f07a22c312b6462facf22f252769041e8812))
 * fix: Game Update 1.41.9.2 in [#1470](https://github.com/roflmuffin/CounterStrikeSharp/pull/1470) ([5465e2a](https://github.com/roflmuffin/CounterStrikeSharp/commit/5465e2aad8bb288e4214167b8fb664a35a841bd2))
@@ -176,7 +196,7 @@
 * fix: update linux signature for GetCSWeaponDataFromKey ([b4e83df](https://github.com/roflmuffin/CounterStrikeSharp/commit/b4e83dfb4a1a1723c08ac79ea68da4ab8a0255fd))
 * feat(schema): update schema generator to use @GAMMACASE schema dumper format ([4ff2732](https://github.com/roflmuffin/CounterStrikeSharp/commit/4ff2732d8a55297c18cea6181b9022f56cd8fae3))
 
-## What's Changed in v1.0.344
+## What's Changed in v2.0.0-beta.0
 * chore(schema): update schema to latest ([f505405](https://github.com/roflmuffin/CounterStrikeSharp/commit/f50540583d079a6cf546ca590147905ba5eb2c83))
 * fix(schema): allow for negative enum values in source schema file ([97957f6](https://github.com/roflmuffin/CounterStrikeSharp/commit/97957f62208fa782f89e9629ddde1944aaadd149))
 * chore: update devcontainer location ([0c2f1cd](https://github.com/roflmuffin/CounterStrikeSharp/commit/0c2f1cd078c0c54a6cf1fb402082b3f38c6303d2))

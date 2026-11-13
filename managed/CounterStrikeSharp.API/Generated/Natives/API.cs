@@ -1229,17 +1229,25 @@ namespace CounterStrikeSharp.API.Core
             }
         }
 
-        public static IntPtr GetFirstActiveEntity()
-        {
-            lock (ScriptContext.GlobalScriptContext.Lock)
-            {
-                ScriptContext.GlobalScriptContext.Reset();
-                ScriptContext.GlobalScriptContext.SetIdentifier(0x3E50DC41);
-                ScriptContext.GlobalScriptContext.Invoke();
-                ScriptContext.GlobalScriptContext.CheckErrors();
-                return ScriptContext.GlobalScriptContext.GetResultPrimitive<IntPtr>();
-            }
-        }
+        public static IntPtr GetFirstActiveEntity(){
+			lock (ScriptContext.GlobalScriptContext.Lock) {
+			ScriptContext.GlobalScriptContext.Reset();
+			ScriptContext.GlobalScriptContext.SetIdentifier(0x3E50DC41);
+			ScriptContext.GlobalScriptContext.Invoke();
+			ScriptContext.GlobalScriptContext.CheckErrors();
+			return ScriptContext.GlobalScriptContext.GetResultPrimitive<IntPtr>();
+			}
+		}
+
+        public static bool IsEntitySystemInitialized(){
+			lock (ScriptContext.GlobalScriptContext.Lock) {
+			ScriptContext.GlobalScriptContext.Reset();
+			ScriptContext.GlobalScriptContext.SetIdentifier(0x869D52F2);
+			ScriptContext.GlobalScriptContext.Invoke();
+			ScriptContext.GlobalScriptContext.CheckErrors();
+			return ScriptContext.GlobalScriptContext.GetResultPrimitive<bool>();
+			}
+		}
 
         public static ulong GetPlayerAuthorizedSteamid(int slot)
         {

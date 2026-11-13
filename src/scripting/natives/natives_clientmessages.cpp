@@ -661,7 +661,7 @@ static void ClientMessageFindMessageIdByName(ScriptContext& scriptContext)
         return;
     }
 
-    scriptContext.SetResult(message->GetNetMessageInfo()->m_MessageId);
+    scriptContext.SetResult(message->GetMessageId());
 }
 
 static void ClientMessageCreate(ScriptContext& scriptContext)
@@ -760,7 +760,7 @@ static void ClientMessageGetMessageName(ScriptContext& scriptContext)
         return;
     }
 
-    scriptContext.SetResult(message->GetSerializableMessage()->GetUnscopedName());
+    scriptContext.SetResult(message->GetSerializableMessage()->GetName());
 }
 
 static void ClientMessageGetMessageSender(ScriptContext& scriptContext)

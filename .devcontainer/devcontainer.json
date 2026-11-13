@@ -1,6 +1,8 @@
 {
   "name": "SteamRT Sniper SDK",
-  "image": "registry.gitlab.steamos.cloud/steamrt/sniper/sdk:latest",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "updateContentCommand": "git submodule update --init --recursive",
   "customizations": {
     "vscode": {

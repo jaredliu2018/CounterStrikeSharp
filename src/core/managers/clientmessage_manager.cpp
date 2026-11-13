@@ -149,7 +149,7 @@ bool ClientMessageManager::FindPlayerByNetChan(INetChannel* pChannel, CPlayerSlo
 KHook::Return<bool>
 ClientMessageManager::Hook_FilterMessage(INetworkMessageProcessingPreFilter* hookThis, const CNetMessage* pData, INetChannel* pChannel)
 {
-    INetworkMessageInternal* pEvent = pData->GetNetMessage();
+    NetMessageInfo_t* pEvent = pData->GetNetMessage();
 
     CPlayerSlot player(0);
     if (!FindPlayerByNetChan(pChannel, &player))

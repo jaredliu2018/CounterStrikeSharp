@@ -71,7 +71,6 @@ using namespace google;
         return false;                                             \
     };
 
-class INetworkMessageInternal;
 namespace google::protobuf {
 class Message;
 }
@@ -95,7 +94,7 @@ static inline size_t SafeStrcpy(char* dest, size_t maxlength, const char* src)
 class ClientMessage
 {
   public:
-    ClientMessage(INetworkMessageInternal* msgSerializable, int sender, const CNetMessage* message)
+    ClientMessage(NetMessageInfo_t* msgSerializable, int sender, const CNetMessage* message)
         : msgSerializable(msgSerializable), sender(sender), msg(const_cast<CNetMessage*>(message)->ToPB<protobuf::Message>())
     {
         this->recipientMask = new uint64(0);
@@ -126,12 +125,12 @@ class ClientMessage
     int GetSender();
     bool HasField(std::string fieldName);
     const CNetMessagePB<google::protobuf::Message>* GetProtobufMessage();
-    INetworkMessageInternal* GetSerializableMessage() { return msgSerializable; }
+    NetMessageInfo_t* GetSerializableMessage() { return msgSerializable; }
     uint64* GetRecipientMask() { return recipientMask; }
 
   private:
     CNetMessagePB<google::protobuf::Message>* msg = nullptr;
-    INetworkMessageInternal* msgSerializable = nullptr;
+    NetMessageInfo_t* msgSerializable = nullptr;
     int sender = -1;
     int nRecipientCount = 0;
     uint64* recipientMask = nullptr;
